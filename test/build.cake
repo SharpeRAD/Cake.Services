@@ -1,4 +1,3 @@
-#addin "Cake.Powershell"
 #addin "Cake.Services"
 
 #r System.ServiceProcess

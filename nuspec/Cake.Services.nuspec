@@ -18,6 +18,7 @@
   <files>
     <file src="System.Management.Automation.dll" target="lib/net45" />
     <file src="Cake.Services.dll" target="lib/net45" />
+    <file src="Cake.Powershell.dll" target="lib/net45" />
     <file src="LICENSE" />
   </files>
 </package>
