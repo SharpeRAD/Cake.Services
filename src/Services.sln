@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Services.Tests", "Tests\Cake.Services.Tests.csproj", "{C5AA80E6-491F-4FBE-8751-0153368B295B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{7B702943-4526-4B9D-B8DD-F50821850150}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33AE8B80-1390-42EA-AE69-43DA12617BB0}"
+	ProjectSection(SolutionItems) = preProject
+		..\test\build.cake = ..\test\build.cake
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA-7E95-4CE2-899A-2B962EAAE1B8}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.cake = ..\build.cake
+		..\ReleaseNotes.md = ..\ReleaseNotes.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Services", "Services\Cake.Services.csproj", "{171DEB60-7434-4D28-980E-43F1D94920A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2973-4B5E-964B-9FA607BB218D}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5AA80E6-491F-4FBE-8751-0153368B295B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AA80E6-491F-4FBE-8751-0153368B295B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5AA80E6-491F-4FBE-8751-0153368B295B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5AA80E6-491F-4FBE-8751-0153368B295B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171DEB60-7434-4D28-980E-43F1D94920A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171DEB60-7434-4D28-980E-43F1D94920A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171DEB60-7434-4D28-980E-43F1D94920A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171DEB60-7434-4D28-980E-43F1D94920A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5AA80E6-491F-4FBE-8751-0153368B295B} = {33AE8B80-1390-42EA-AE69-43DA12617BB0}
+		{171DEB60-7434-4D28-980E-43F1D94920A3} = {7B702943-4526-4B9D-B8DD-F50821850150}
+	EndGlobalSection
+EndGlobal
