@@ -1,6 +1,11 @@
 # Cake.Services
 Cake Addon that extends Cake with windows service commands
+
 [![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-services)
+
+[![cakebuild.net](https://img.shields.io/badge/WWW-cakebuild.net-blue.svg)](http://cakebuild.net/)
+
+[![Join the chat at https://gitter.im/cake-build/cake](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cake-build/cake?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 
@@ -11,17 +16,13 @@ This is a list of some the currently implemented functionality:
 * Start
 * Stop
 * Restart
-
 * Pause
 * Continue
 * Execute Command
-
 * Get Service
 * Get Status
-
 * Install
 * Uninstall
-
 * Manage remote services
 
 
