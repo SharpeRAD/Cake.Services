@@ -1,4 +1,7 @@
+#addin "Cake.Powershell"
 #addin "Cake.Services"
+
+#r System.ServiceProcess
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -19,15 +22,15 @@ Task("Windows-Service")
     .Description("Stop / Start windows service")
     .Does(() =>
 	{
-		bool status = IsServiceRunning("MpsSvc");
+		bool status = IsServiceRunning("MpsSvc", "");
 
 		if (status)
 		{
-			StopService("MpsSvc");
+			StopService("MpsSvc", "", 60000);
 		}
 		else
 		{
-			StartService("MpsSvc");
+			StartService("MpsSvc", "", 60000, null);
 		}
 	});
 

@@ -226,7 +226,15 @@ namespace Cake.Services
                     if (service.Status != ServiceControllerStatus.StartPending)
                     {
                         _Log.Debug(string.Format("Attempting to start the service {0}.", name));
-                        service.Start(args);
+
+                        if (args != null)
+                        {
+                            service.Start(args);
+                        }
+                        else
+                        {
+                            service.Start();
+                        }
                     }
 
 

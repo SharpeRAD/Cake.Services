@@ -24,7 +24,13 @@ namespace Cake.Services
 
 
         [CakeMethodAlias]
-        public static ServiceController GetService(this ICakeContext context, string name, string computer = "")
+        public static ServiceController GetService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().GetService(name, "");
+        }
+
+        [CakeMethodAlias]
+        public static ServiceController GetService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetService(name, computer);
         }
@@ -32,19 +38,37 @@ namespace Cake.Services
 
 
         [CakeMethodAlias]
-        public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name, string computer = "")
+        public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name)
+        {
+            return context.CreateManager().GetStatus(name, "");
+        }
+
+        [CakeMethodAlias]
+        public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetStatus(name, computer);
         }
 
         [CakeMethodAlias]
-        public static bool IsServiceRunning(this ICakeContext context, string name, string computer = "")
+        public static bool IsServiceRunning(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsRunning(name, "");
+        }
+
+        [CakeMethodAlias]
+        public static bool IsServiceRunning(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsRunning(name, computer);
         }
 
         [CakeMethodAlias]
-        public static bool IsServiceStopped(this ICakeContext context, string name, string computer = "")
+        public static bool IsServiceStopped(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsStopped(name, "");
+        }
+
+        [CakeMethodAlias]
+        public static bool IsServiceStopped(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsStopped(name, computer);
         }
@@ -52,19 +76,61 @@ namespace Cake.Services
 
 
         [CakeMethodAlias]
-        public static bool StartService(this ICakeContext context, string name, string computer = "", int timeout = 60000, string[] args = null)
+        public static bool StartService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().Start(name, "", 60000, null);
+        }
+
+        [CakeMethodAlias]
+        public static bool StartService(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().Start(name, computer, 60000, null);
+        }
+
+        [CakeMethodAlias]
+        public static bool StartService(this ICakeContext context, string name, string computer, int timeout)
+        {
+            return context.CreateManager().Start(name, computer, timeout, null);
+        }
+
+        [CakeMethodAlias]
+        public static bool StartService(this ICakeContext context, string name, string computer, int timeout, string[] args)
         {
             return context.CreateManager().Start(name, computer, timeout, args);
         }
 
         [CakeMethodAlias]
-        public static bool StopService(this ICakeContext context, string name, string computer = "", int timeout = 60000)
+        public static bool StopService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().Stop(name, "", 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool StopService(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().Stop(name, computer, 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool StopService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Stop(name, computer, timeout);
         }
 
         [CakeMethodAlias]
-        public static bool RestartService(this ICakeContext context, string name, string computer = "", int timeout = 60000)
+        public static bool RestartService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().Restart(name, "", 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool RestartService(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().Restart(name, computer, 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool RestartService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Restart(name, computer, timeout);
         }
@@ -72,13 +138,37 @@ namespace Cake.Services
 
 
         [CakeMethodAlias]
-        public static bool PauseService(this ICakeContext context, string name, string computer = "", int timeout = 60000)
+        public static bool PauseService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().Pause(name, "", 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool PauseService(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().Pause(name, computer, 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool PauseService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Pause(name, computer, timeout);
         }
 
         [CakeMethodAlias]
-        public static bool ContinueService(this ICakeContext context, string name, string computer = "", int timeout = 60000)
+        public static bool ContinueService(this ICakeContext context, string name)
+        {
+            return context.CreateManager().Continue(name, "", 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool ContinueService(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().Continue(name, computer, 60000);
+        }
+
+        [CakeMethodAlias]
+        public static bool ContinueService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Continue(name, computer, timeout);
         }
@@ -106,7 +196,13 @@ namespace Cake.Services
         }
 
         [CakeMethodAlias]
-        public static void UninstallService(this ICakeContext context, string name, string computer = "")
+        public static void UninstallService(this ICakeContext context, string name)
+        {
+            context.CreateManager().Uninstall(name, "");
+        }
+
+        [CakeMethodAlias]
+        public static void UninstallService(this ICakeContext context, string name, string computer)
         {
             context.CreateManager().Uninstall(name, computer);
         }
