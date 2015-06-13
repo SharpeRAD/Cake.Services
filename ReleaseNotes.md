@@ -1,3 +1,7 @@
+### New in 0.0.5 (Released 2015/06/13)
+* Install XUnit during build for AppVeyor
+* Extra Aliases for optional parameters
+
 ### New in 0.0.4 (Released 2015/06/11)
 * Add IServiceManager interface
 * Improve code documentation

@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33AE8B80
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA-7E95-4CE2-899A-2B962EAAE1B8}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
 		..\ReleaseNotes.md = ..\ReleaseNotes.md
 	EndProjectSection

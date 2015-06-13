@@ -142,3 +142,9 @@ Task("Uninstall-Service")
 
 RunTarget("Start-Service");
 ```
+
+
+
+## Example
+
+A complete cake build example can be found [here](https://github.com/SharpeRAD/Cake.Services/blob/master/test/build.cake)
