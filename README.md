@@ -30,6 +30,9 @@ This is a list of some the currently implemented functionality:
 ## Usage
 
 ```csharp
+#addin "Cake.Services"
+
+
 Task("Start-Service")
     .Description("Start a stopped windows service")
     .Does(() =>
@@ -52,7 +55,6 @@ Task("Restart-Service")
 });
 
 
-
 Task("Pause-Service")
     .Description("Pause a running windows service")
     .Does(() =>
@@ -73,7 +75,6 @@ Task("Execute-Command")
 {
     ExecuteServiceCommand("MyService", 4);
 });
-
 
 
 Task("Get-Service")
@@ -113,7 +114,6 @@ Task("Is-Service-Stopped")
 });
 
 
-
 Task("Install-Service")
     .Description("Install a windows service")
     .Does(() =>
@@ -138,7 +138,6 @@ Task("Uninstall-Service")
 {
     UninstallService("Popup", "remote-location");
 });
-
 
 
 RunTarget("Start-Service");
