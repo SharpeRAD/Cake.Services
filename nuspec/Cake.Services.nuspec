@@ -14,15 +14,18 @@
       <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
       <releaseNotes>Initial Release</releaseNotes>
       <tags>Cake Script Build WindowsService</tags>
-   </metadata>
 
-   <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System.ServiceProcess" />
-   </frameworkAssemblies>
+      <frameworkAssemblies>
+         <frameworkAssembly assemblyName="System.ServiceProcess" />
+      </frameworkAssemblies>
+      
+      <dependencies>
+         <dependency id="Cake.Powershell"/>
+      </dependencies>
+   </metadata>
 
    <files>
       <file src="System.Management.Automation.dll" target="lib/net45" />
-      <file src="Cake.Services.dll" target="lib/net45" />
       <file src="Cake.Powershell.dll" target="lib/net45" />
       <file src="LICENSE" />
    </files>
