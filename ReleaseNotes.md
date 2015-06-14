@@ -1,3 +1,6 @@
+### New in 0.0.6 (Released 2015/06/14)
+* Add framework refereences to Nuget
+
 ### New in 0.0.5 (Released 2015/06/13)
 * Install XUnit during build for AppVeyor
 * Extra Aliases for optional parameters
