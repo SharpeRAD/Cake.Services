@@ -1,3 +1,6 @@
+### New in 0.0.7 (Released 2015/06/14)
+* Correct Nuget package
+
 ### New in 0.0.6 (Released 2015/06/14)
 * Add framework references to Nuget
 
