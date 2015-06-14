@@ -1,5 +1,5 @@
 # Cake.Services
-Cake Addon that extends Cake with windows service commands
+Cake Build addon that extends Cake with windows service commands
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-services)
 
