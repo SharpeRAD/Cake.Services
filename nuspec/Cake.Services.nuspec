@@ -5,6 +5,7 @@
       <version>0.0.0</version>
       <authors>Phillip Sharpe</authors>
       <owners>Phillip Sharpe</owners>
+      <title>Cake.Services</title>
       <description>Cake Build addon for Windows services.</description>
       <summary>Windows services addon for cake build.</summary>
       <licenseUrl>https://github.com/SharpeRAD/Cake.Services/LICENSE</licenseUrl>
