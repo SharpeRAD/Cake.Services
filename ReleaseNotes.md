@@ -1,3 +1,6 @@
+### New in 0.0.8 (Released 2015/06/18)
+* Code documentation
+
 ### New in 0.0.7 (Released 2015/06/14)
 * Correct Nuget package
 

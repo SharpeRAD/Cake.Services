@@ -62,6 +62,7 @@ namespace Cake.Services
 
 
         #region Functions (10)
+            /// <inheritdoc />
             public ServiceController GetService(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -81,6 +82,7 @@ namespace Cake.Services
                 }
             }
 
+            /// <inheritdoc />
             public bool ServiceExists(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -115,6 +117,7 @@ namespace Cake.Services
 
 
 
+            /// <inheritdoc />
             public ServiceControllerStatus GetStatus(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -131,6 +134,7 @@ namespace Cake.Services
                 return service.Status;
             }
 
+            /// <inheritdoc />
             public bool IsRunning(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -145,6 +149,7 @@ namespace Cake.Services
                 return (status == ServiceControllerStatus.Running);
             }
 
+            /// <inheritdoc />
             public bool IsStopped(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -159,6 +164,7 @@ namespace Cake.Services
                 return (status == ServiceControllerStatus.Stopped);
             }
 
+            /// <inheritdoc />
             public bool CanPauseAndContinue(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -173,6 +179,7 @@ namespace Cake.Services
                 return service.CanPauseAndContinue;
             }
 
+            /// <inheritdoc />
             public bool CanStop(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -187,6 +194,7 @@ namespace Cake.Services
                 return service.CanStop;
             }
 
+            /// <inheritdoc />
             public bool CanShutdown(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -203,6 +211,7 @@ namespace Cake.Services
 
 
 
+            /// <inheritdoc />
             public bool Start(string name, string computer = "", int timeout = 60000, string[] args = null)
             {
                 if (String.IsNullOrEmpty(name))
@@ -254,7 +263,8 @@ namespace Cake.Services
                     }
                 }
             }
-
+            
+            /// <inheritdoc />
             public bool Stop(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -308,6 +318,7 @@ namespace Cake.Services
                 }
             }
 
+            /// <inheritdoc />
             public bool Restart(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -329,6 +340,7 @@ namespace Cake.Services
 
 
 
+            /// <inheritdoc />
             public bool Pause(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -382,6 +394,7 @@ namespace Cake.Services
                 }
             }
 
+            /// <inheritdoc />
             public bool Continue(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -436,7 +449,7 @@ namespace Cake.Services
             }
 
 
-
+            /// <inheritdoc />
             public bool ExecuteCommand(string name, string computer = "", int command = 0)
             {
                 if (String.IsNullOrEmpty(name))
@@ -464,7 +477,7 @@ namespace Cake.Services
             }
 
 
-
+            /// <inheritdoc />
             public void Install(string computer, InstallSettings settings)
             {
                 if (settings == null)
@@ -490,6 +503,7 @@ namespace Cake.Services
                 }
             }
 
+            /// <inheritdoc />
             public bool Uninstall(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -527,7 +541,7 @@ namespace Cake.Services
 
 
 
-
+            //Helpers
             private void PowershellCreateCommand(string computer, InstallSettings settings)
             {
                 //Get Arguments

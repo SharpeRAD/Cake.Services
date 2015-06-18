@@ -61,7 +61,7 @@ namespace Cake.Services
         /// Specifies a friendly name that can be used by user interface programs to identify the service.
         /// </summary>
         /// <param name="settings">The process settings.</param>
-        /// <param name="name">The name of the service</param>
+        /// <param name="name">The friendly name of the service</param>
         /// <returns>The same <see cref="InstallSettings"/> instance so that multiple calls can be chained.</returns>
         public static InstallSettings SetDisplayname(this InstallSettings settings, string name)
         {
@@ -80,7 +80,7 @@ namespace Cake.Services
         /// Specifies a path to the service binary file.
         /// </summary>
         /// <param name="settings">The installation settings.</param>
-        /// <param name="name">The name of the service</param>
+        /// <param name="path">The path to the service binary file.</param>
         /// <returns>The same <see cref="InstallSettings"/> instance so that multiple calls can be chained.</returns>
         public static InstallSettings SetExecutablePath(this InstallSettings settings, FilePath path)
         {
@@ -97,7 +97,7 @@ namespace Cake.Services
         /// Specifies the start type for the service. The default setting is start= demand.
         /// </summary>
         /// <param name="settings">The process settings.</param>
-        /// <param name="name">The name of the service</param>
+        /// <param name="mode">The start type for the service</param>
         /// <returns>The same <see cref="InstallSettings"/> instance so that multiple calls can be chained.</returns>
         public static InstallSettings SetStartMode(this InstallSettings settings, string mode)
         {
@@ -116,7 +116,7 @@ namespace Cake.Services
         /// Specifies the names of services or groups that must start before this service starts. The names are separated by forward slashes (/).
         /// </summary>
         /// <param name="settings">The installation settings.</param>
-        /// <param name="dependencies">The name of the service</param>
+        /// <param name="dependencies">The names of services or groups that must start before this service starts</param>
         /// <returns>The same <see cref="InstallSettings"/> instance so that multiple calls can be chained.</returns>
         public static InstallSettings SetDependencies(this InstallSettings settings, string dependencies)
         {
