@@ -477,6 +477,13 @@ namespace Cake.Services
             }
 
 
+        
+            /// <inheritdoc />
+            public void Install(InstallSettings settings)
+            {
+                this.Install("", settings);
+            }
+
             /// <inheritdoc />
             public void Install(string computer, InstallSettings settings)
             {

@@ -61,6 +61,8 @@ namespace Cake.Services
             /// <returns>If the service is stopped.</returns>
             bool IsStopped(string name, string computer = "");
 
+
+
             /// <summary>
             /// Checks if the named service can be paused and continued
             /// </summary>

@@ -164,7 +164,10 @@ Task("Copy-Files")
 
     CopyFiles(new FilePath[] { "LICENSE", "README.md" }, binDir);
 
+
+	CopyDirectory("./tools/",  "./test/tools/");
 	CreateDirectory("./test/tools/Addins/Cake.Services/lib/net45/");
+
 	CopyFileToDirectory(buildDir + "/Cake.Services.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 	CopyFileToDirectory("./lib/System.Management.Automation.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 });
