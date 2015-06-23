@@ -27,6 +27,22 @@ This is a list of some the currently implemented functionality:
 
 
 
+## Referencing
+
+Cake.Services is avaiable as a nuget package from the package manager console:
+
+```csharp
+Install-Package Cake.Services
+```
+
+or directly in your build script via a cake addin:
+
+```csharp
+#addin "Cake.Services"
+```
+
+
+
 ## Usage
 
 ```csharp
