@@ -1,5 +1,5 @@
 # Cake.Services
-Cake Build addon that extends Cake with windows service commands
+Cake-Build addin that extends Cake with windows service commands
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-services)
 
@@ -10,8 +10,6 @@ Cake Build addon that extends Cake with windows service commands
 
 
 ## Implemented functionality
-
-This is a list of some the currently implemented functionality:
 
 * Start
 * Stop
@@ -163,4 +161,4 @@ RunTarget("Start-Service");
 
 ## Example
 
-A complete cake build example can be found [here](https://github.com/SharpeRAD/Cake.Services/blob/master/test/build.cake)
+A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.Services/blob/master/test/build.cake)
