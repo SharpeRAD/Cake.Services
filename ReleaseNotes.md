@@ -1,3 +1,6 @@
+### New in 0.1.1 (Released 2015/07/28)
+* Added namespace imports
+
 ### New in 0.1.0 (Released 2015/07/28)
 * Change logging calls from debug to information
 
