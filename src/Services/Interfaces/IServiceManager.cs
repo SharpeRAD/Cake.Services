@@ -46,6 +46,14 @@ namespace Cake.Services
             ServiceControllerStatus GetStatus(string name, string computer = "");
 
             /// <summary>
+            /// Checks if the named service is installed
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is installed.</returns>
+            bool IsInstalled(string name, string computer = "");
+
+            /// <summary>
             /// Checks if the named service is running
             /// </summary>
             /// <param name="name">The name that identifies the service to the system.</param>

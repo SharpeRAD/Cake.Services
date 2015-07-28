@@ -135,6 +135,29 @@ namespace Cake.Services
             }
 
             /// <inheritdoc />
+            public bool IsInstalled(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceController controller = this.GetService(name, computer);
+
+                try
+                {
+                    ServiceControllerStatus status = controller.Status;
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+            /// <inheritdoc />
             public bool IsRunning(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))

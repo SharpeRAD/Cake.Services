@@ -149,7 +149,7 @@ Task("Run-Unit-Tests")
 
 
 Task("Copy-Files")
-    .IsDependentOn("Run-Unit-Tests")
+    .IsDependentOn("Build")
     .Does(() =>
 {
 	CopyFileToDirectory("./lib/System.Management.Automation.dll", binDir);

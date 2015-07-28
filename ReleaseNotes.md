@@ -1,3 +1,6 @@
+### New in 0.0.9 (Released 2015/07/28)
+* Added 'IsInstalled' method
+
 ### New in 0.0.8 (Released 2015/06/18)
 * Code documentation
 * Copy tools to test folder

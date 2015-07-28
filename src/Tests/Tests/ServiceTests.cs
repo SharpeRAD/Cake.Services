@@ -20,9 +20,20 @@ namespace Cake.Services.Tests
 {
     public class ServiceTests
     {
-        /*
         [Fact]
-        public void GetService()
+        public void Service_Installed()
+        {
+            IServiceManager manager = CakeHelper.CreateServiceManager();
+
+            bool result1 = manager.IsInstalled("MpsSvc");
+            bool result2 = manager.IsInstalled("TestSer");
+
+            Assert.True(result1);
+            Assert.False(result2);
+        }
+
+        [Fact]
+        public void Service_Get()
         {
             IServiceManager manager = CakeHelper.CreateServiceManager();
 
@@ -32,7 +43,7 @@ namespace Cake.Services.Tests
         }
 
         [Fact]
-        public void ChangeService()
+        public void Service_ChangeState()
         {
             IServiceManager manager = CakeHelper.CreateServiceManager();
             bool result = false;
@@ -48,6 +59,5 @@ namespace Cake.Services.Tests
 
             Assert.True(result, "Check Rights");
         }
-        */
     }
 }

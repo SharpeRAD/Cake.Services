@@ -72,8 +72,33 @@ namespace Cake.Services
         {
             return context.CreateManager().GetStatus(name, computer);
         }
-        
 
+
+
+        /// <summary>
+        /// Checks if the named service is installed
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is installed.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceInstalled(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsRunning(name, "");
+        }
+
+        /// <summary>
+        /// Checks if the named service is installed
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is installed.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceInstalled(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsRunning(name, computer);
+        }
 
         /// <summary>
         /// Checks if the named service is running
