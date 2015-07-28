@@ -105,12 +105,12 @@ namespace Cake.Services
 
                 if (services.FirstOrDefault(s => s.ServiceName == name) != null)
                 {
-                    _Log.Debug(string.Format("The service {0} exists.", name));
+                    _Log.Information(string.Format("The service {0} exists.", name));
                     return true;
                 }
                 else
                 {
-                    _Log.Debug(string.Format("The service {0} does not exist.", name));
+                    _Log.Information(string.Format("The service {0} does not exist.", name));
                     return false;
                 }
             }
@@ -129,7 +129,7 @@ namespace Cake.Services
 
                 ServiceController service = this.GetService(name, computer);
 
-                _Log.Debug(string.Format("Getting the status of the service {0}.", name));
+                _Log.Information(string.Format("Getting the status of the service {0}.", name));
 
                 return service.Status;
             }
@@ -149,10 +149,13 @@ namespace Cake.Services
                 try
                 {
                     ServiceControllerStatus status = controller.Status;
+
+                    _Log.Information(string.Format("The service {0} is installed.", name));
                     return true;
                 }
                 catch
                 {
+                    _Log.Information(string.Format("The service {0} is not installed!", name));
                     return false;
                 }
             }
@@ -169,7 +172,16 @@ namespace Cake.Services
 
                 ServiceControllerStatus status = this.GetStatus(name, computer);
 
-                return (status == ServiceControllerStatus.Running);
+                if (status == ServiceControllerStatus.Running)
+                {
+                    _Log.Information(string.Format("The service {0} is running.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not running!", name));
+                    return false;
+                }
             }
 
             /// <inheritdoc />
@@ -184,7 +196,16 @@ namespace Cake.Services
 
                 ServiceControllerStatus status = this.GetStatus(name, computer);
 
-                return (status == ServiceControllerStatus.Stopped);
+                if (status == ServiceControllerStatus.Stopped)
+                {
+                    _Log.Information(string.Format("The service {0} is stopped.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not stopped!", name));
+                    return false;
+                }
             }
 
             /// <inheritdoc />
@@ -199,7 +220,16 @@ namespace Cake.Services
 
                 ServiceController service = this.GetService(name, computer);
 
-                return service.CanPauseAndContinue;
+                if (service.CanPauseAndContinue)
+                {
+                    _Log.Information(string.Format("The service {0} can pause and continue.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} can not pause and continue!", name));
+                    return false;
+                }
             }
 
             /// <inheritdoc />
@@ -214,7 +244,16 @@ namespace Cake.Services
 
                 ServiceController service = this.GetService(name, computer);
 
-                return service.CanStop;
+                if (service.CanStop)
+                {
+                    _Log.Information(string.Format("The service {0} can be stopped.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} can not be stopped!", name));
+                    return false;
+                }
             }
 
             /// <inheritdoc />
@@ -229,7 +268,16 @@ namespace Cake.Services
 
                 ServiceController service = this.GetService(name, computer);
 
-                return service.CanShutdown;
+                if (service.CanShutdown)
+                {
+                    _Log.Information(string.Format("The service {0} can be shutdown.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} can not be shutdown!", name));
+                    return false;
+                }
             }
 
 
@@ -249,7 +297,7 @@ namespace Cake.Services
                 if (service.Status == ServiceControllerStatus.Running)
                 {
                     //Already Running
-                    _Log.Debug(string.Format("The service {0} is already running.", name));
+                    _Log.Information(string.Format("The service {0} is already running.", name));
                     return true;
                 }
                 else
@@ -257,7 +305,7 @@ namespace Cake.Services
                     //Start Service
                     if (service.Status != ServiceControllerStatus.StartPending)
                     {
-                        _Log.Debug(string.Format("Attempting to start the service {0}.", name));
+                        _Log.Information(string.Format("Attempting to start the service {0}.", name));
 
                         if (args != null)
                         {
@@ -276,12 +324,12 @@ namespace Cake.Services
 
                     if (service.Status == ServiceControllerStatus.Running)
                     {
-                        _Log.Debug(string.Format("The service {0} has been started.", name));
+                        _Log.Information(string.Format("The service {0} has been started.", name));
                         return true;
                     }
                     else
                     {
-                        _Log.Debug(string.Format("The service {0} could not be started.", name));
+                        _Log.Information(string.Format("The service {0} could NOT be started.", name));
                         return false;
                     }
                 }
@@ -302,7 +350,7 @@ namespace Cake.Services
                 if (!service.CanStop)
                 {
                     //Can't Stop
-                    _Log.Debug(string.Format("The service {0} can't be stopped.", name));
+                    _Log.Information(string.Format("The service {0} can't be stopped.", name));
                     return false;
                 }
                 else
@@ -310,7 +358,7 @@ namespace Cake.Services
                     if (service.Status == ServiceControllerStatus.Stopped)
                     {
                         //Already Stopped
-                        _Log.Debug(string.Format("The service {0} is already stopped.", name));
+                        _Log.Information(string.Format("The service {0} is already stopped.", name));
                         return true;
                     }
                     else
@@ -318,7 +366,7 @@ namespace Cake.Services
                         //Stop Service
                         if (service.Status != ServiceControllerStatus.StopPending)
                         {
-                            _Log.Debug(string.Format("Attempting to stop the service {0}.", name));
+                            _Log.Information(string.Format("Attempting to stop the service {0}.", name));
                             service.Stop();
                         }
 
@@ -329,12 +377,12 @@ namespace Cake.Services
 
                         if (service.Status == ServiceControllerStatus.Stopped)
                         {
-                            _Log.Debug(string.Format("The service {0} has been stopped.", name));
+                            _Log.Information(string.Format("The service {0} has been stopped.", name));
                             return true;
                         }
                         else
                         {
-                            _Log.Debug(string.Format("The service {0} could not be stopped.", name));
+                            _Log.Information(string.Format("The service {0} could not be stopped.", name));
                             return false;
                         }
                     }
@@ -378,7 +426,7 @@ namespace Cake.Services
                 if (!service.CanPauseAndContinue)
                 {
                     //Can't Pause
-                    _Log.Debug(string.Format("The service {0} can't be paused.", name));
+                    _Log.Information(string.Format("The service {0} can't be paused.", name));
                     return false;
                 }
                 else
@@ -386,7 +434,7 @@ namespace Cake.Services
                     if (service.Status == ServiceControllerStatus.Paused)
                     {
                         //Already Paused
-                        _Log.Debug(string.Format("The service {0} is already paused.", name));
+                        _Log.Information(string.Format("The service {0} is already paused.", name));
                         return true;
                     }
                     else
@@ -394,7 +442,7 @@ namespace Cake.Services
                         //Pause Service
                         if (service.Status != ServiceControllerStatus.PausePending)
                         {
-                            _Log.Debug(string.Format("Attempting to pause the service {0}.", name));
+                            _Log.Information(string.Format("Attempting to pause the service {0}.", name));
                             service.Pause();
                         }
 
@@ -405,12 +453,12 @@ namespace Cake.Services
 
                         if (service.Status == ServiceControllerStatus.Paused)
                         {
-                            _Log.Debug(string.Format("The service {0} has been paused.", name));
+                            _Log.Information(string.Format("The service {0} has been paused.", name));
                             return true;
                         }
                         else
                         {
-                            _Log.Debug(string.Format("The service {0} could not be paused.", name));
+                            _Log.Information(string.Format("The service {0} could not be paused.", name));
                             return false;
                         }
                     }
@@ -432,7 +480,7 @@ namespace Cake.Services
                 if (!service.CanPauseAndContinue)
                 {
                     //Can't Continue
-                    _Log.Debug(string.Format("The service {0} can't be continued.", name));
+                    _Log.Information(string.Format("The service {0} can't be continued.", name));
                     return false;
                 }
                 else
@@ -440,7 +488,7 @@ namespace Cake.Services
                     if (service.Status == ServiceControllerStatus.Running)
                     {
                         //Already Running
-                        _Log.Debug(string.Format("The service {0} is already running.", name));
+                        _Log.Information(string.Format("The service {0} is already running.", name));
                         return true;
                     }
                     else
@@ -448,7 +496,7 @@ namespace Cake.Services
                         //Pause Service
                         if (service.Status != ServiceControllerStatus.ContinuePending)
                         {
-                            _Log.Debug(string.Format("Attempting to continue the service {0}.", name));
+                            _Log.Information(string.Format("Attempting to continue the service {0}.", name));
                             service.Continue();
                         }
 
@@ -459,12 +507,12 @@ namespace Cake.Services
 
                         if (service.Status == ServiceControllerStatus.Running)
                         {
-                            _Log.Debug(string.Format("The service {0} has been continued.", name));
+                            _Log.Information(string.Format("The service {0} has been continued.", name));
                             return true;
                         }
                         else
                         {
-                            _Log.Debug(string.Format("The service {0} could not be continued.", name));
+                            _Log.Information(string.Format("The service {0} could not be continued.", name));
                             return false;
                         }
                     }
@@ -487,13 +535,13 @@ namespace Cake.Services
                 if (service.Status != ServiceControllerStatus.Running)
                 {
                     //Not Running
-                    _Log.Debug(string.Format("The service {0} is not running.", name));
+                    _Log.Information(string.Format("The service {0} is not running.", name));
                     return false;
                 }
                 else
                 {
                     //Execute Command
-                    _Log.Debug(string.Format("Sending the command to the service {0}.", name));
+                    _Log.Information(string.Format("Sending the command to the service {0}.", name));
                     service.ExecuteCommand(command);
                     return true;
                 }
