@@ -84,7 +84,7 @@ namespace Cake.Services
         [CakeMethodAlias]
         public static bool IsServiceInstalled(this ICakeContext context, string name)
         {
-            return context.CreateManager().IsRunning(name, "");
+            return context.CreateManager().IsInstalled(name, "");
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Cake.Services
         [CakeMethodAlias]
         public static bool IsServiceInstalled(this ICakeContext context, string name, string computer)
         {
-            return context.CreateManager().IsRunning(name, computer);
+            return context.CreateManager().IsInstalled(name, computer);
         }
 
         /// <summary>
