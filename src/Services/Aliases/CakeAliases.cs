@@ -14,6 +14,7 @@
 namespace Cake.Services
 {
     [CakeAliasCategory("Services")]
+    [CakeNamespaceImport("System.ServiceProcess")]
     public static class CakeAliases
     {
         private static ServiceManager CreateManager(this ICakeContext context)
@@ -30,7 +31,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceController GetService(this ICakeContext context, string name)
         {
             return context.CreateManager().GetService(name, "");
@@ -44,7 +44,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceController GetService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetService(name, computer);
@@ -57,7 +56,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>The <see cref="ServiceControllerStatus"/> status of a service on the specified computer.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name)
         {
             return context.CreateManager().GetStatus(name, "");
@@ -71,7 +69,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>The <see cref="ServiceControllerStatus"/> status of a service on the specified computer.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetStatus(name, computer);
@@ -86,7 +83,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service is installed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceInstalled(this ICakeContext context, string name)
         {
             return context.CreateManager().IsInstalled(name, "");
@@ -100,7 +96,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service is installed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceInstalled(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsInstalled(name, computer);
@@ -113,7 +108,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service is running.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceRunning(this ICakeContext context, string name)
         {
             return context.CreateManager().IsRunning(name, "");
@@ -127,7 +121,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service is running.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceRunning(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsRunning(name, computer);
@@ -140,7 +133,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service is stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceStopped(this ICakeContext context, string name)
         {
             return context.CreateManager().IsStopped(name, "");
@@ -154,7 +146,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service is stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool IsServiceStopped(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsStopped(name, computer);
@@ -169,7 +160,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service can be paused and continued.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServicePauseAndContinue(this ICakeContext context, string name)
         {
             return context.CreateManager().CanPauseAndContinue(name);
@@ -183,7 +173,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service can be paused and continued.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServicePauseAndContinue(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().CanPauseAndContinue(name, computer);
@@ -196,7 +185,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service can be stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServiceStop(this ICakeContext context, string name)
         {
             return context.CreateManager().CanStop(name);
@@ -210,7 +198,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service can be stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServiceStop(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().CanStop(name, computer);
@@ -223,7 +210,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service can be shutdown.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServiceShutdown(this ICakeContext context, string name)
         {
             return context.CreateManager().CanShutdown(name);
@@ -237,7 +223,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service can be shutdown.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool CanServiceShutdown(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().CanShutdown(name, computer);
@@ -252,7 +237,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service was started.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StartService(this ICakeContext context, string name)
         {
             return context.CreateManager().Start(name, "", 60000, null);
@@ -266,7 +250,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was started.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StartService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().Start(name, computer, 60000, null);
@@ -281,7 +264,6 @@ namespace Cake.Services
         /// <param name="timeout">The duration to wait for the command to complete.</param>
         /// <returns>If the service was started.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StartService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Start(name, computer, timeout, null);
@@ -297,7 +279,6 @@ namespace Cake.Services
         /// <param name="args">The arguments to pass to the service when starting</param>
         /// <returns>If the service was started.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StartService(this ICakeContext context, string name, string computer, int timeout, string[] args)
         {
             return context.CreateManager().Start(name, computer, timeout, args);
@@ -310,7 +291,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service was stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StopService(this ICakeContext context, string name)
         {
             return context.CreateManager().Stop(name, "", 60000);
@@ -323,7 +303,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StopService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().Stop(name, computer, 60000);
@@ -338,7 +317,6 @@ namespace Cake.Services
         /// <param name="timeout">The duration to wait for the command to complete.</param>
         /// <returns>If the service was stopped.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool StopService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Stop(name, computer, timeout);
@@ -364,7 +342,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was restarted.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool RestartService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().Restart(name, computer, 60000);
@@ -379,7 +356,6 @@ namespace Cake.Services
         /// <param name="timeout">The duration to wait for the command to complete.</param>
         /// <returns>If the service was restarted.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool RestartService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Restart(name, computer, timeout);
@@ -394,7 +370,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service was paused.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool PauseService(this ICakeContext context, string name)
         {
             return context.CreateManager().Pause(name, "", 60000);
@@ -408,7 +383,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was paused.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool PauseService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().Pause(name, computer, 60000);
@@ -423,7 +397,6 @@ namespace Cake.Services
         /// <param name="timeout">The duration to wait for the command to complete.</param>
         /// <returns>If the service was paused.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool PauseService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Pause(name, computer, timeout);
@@ -436,7 +409,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service was continued.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool ContinueService(this ICakeContext context, string name)
         {
             return context.CreateManager().Continue(name, "", 60000);
@@ -450,7 +422,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was continued.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool ContinueService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().Continue(name, computer, 60000);
@@ -465,7 +436,6 @@ namespace Cake.Services
         /// <param name="timeout">The duration to wait for the command to complete.</param>
         /// <returns>If the service was continued.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool ContinueService(this ICakeContext context, string name, string computer, int timeout)
         {
             return context.CreateManager().Continue(name, computer, timeout);
@@ -481,7 +451,6 @@ namespace Cake.Services
         /// <param name="command">The command to execute.</param>
         /// <returns>If the command was executed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool ExecuteServiceCommand(this ICakeContext context, string name, int command)
         {
             return context.CreateManager().ExecuteCommand(name, "", command);
@@ -496,7 +465,6 @@ namespace Cake.Services
         /// <param name="command">The command to execute.</param>
         /// <returns>If the command was executed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         public static bool ExecuteServiceCommand(this ICakeContext context, string name, string computer, int command)
         {
             return context.CreateManager().ExecuteCommand(name, computer, command);
@@ -511,7 +479,6 @@ namespace Cake.Services
         /// <param name="settings">The settings to use when installing the service.</param>
         /// <returns>If the service was installed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         [CakeNamespaceImport("System.Management.Automation")]
         [CakeNamespaceImport("Cake.Powershell")]
         public static void InstallService(this ICakeContext context, InstallSettings settings)
@@ -527,7 +494,6 @@ namespace Cake.Services
         /// <param name="settings">The settings to use when installing the service.</param>
         /// <returns>If the service was installed.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         [CakeNamespaceImport("System.Management.Automation")]
         [CakeNamespaceImport("Cake.Powershell")]
         public static void InstallService(this ICakeContext context, string computer, InstallSettings settings)
@@ -542,7 +508,6 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>If the service was uninstalled.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         [CakeNamespaceImport("System.Management.Automation")]
         [CakeNamespaceImport("Cake.Powershell")]
         public static void UninstallService(this ICakeContext context, string name)
@@ -558,7 +523,6 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was uninstalled.</returns>
         [CakeMethodAlias]
-        [CakeNamespaceImport("System.ServiceProcess")]
         [CakeNamespaceImport("System.Management.Automation")]
         [CakeNamespaceImport("Cake.Powershell")]
         public static void UninstallService(this ICakeContext context, string name, string computer)
