@@ -1,4 +1,7 @@
-### New in 0.1.1 (Released 2015/07/28)
+### New in 0.1.2 (Released 2015/08/06)
+* Force Build
+
+### New in 0.1.1 (Released 2015/07/29)
 * Added namespace imports
 
 ### New in 0.1.0 (Released 2015/07/28)
