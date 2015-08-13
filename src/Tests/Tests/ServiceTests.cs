@@ -21,7 +21,7 @@ namespace Cake.Services.Tests
     public class ServiceTests
     {
         [Fact]
-        public void Service_Installed()
+        public void Should_Service_IsInstalled()
         {
             IServiceManager manager = CakeHelper.CreateServiceManager();
 
@@ -33,7 +33,7 @@ namespace Cake.Services.Tests
         }
 
         [Fact]
-        public void Service_Get()
+        public void Should_Get_Service()
         {
             IServiceManager manager = CakeHelper.CreateServiceManager();
 
@@ -43,7 +43,7 @@ namespace Cake.Services.Tests
         }
 
         [Fact]
-        public void Service_ChangeState()
+        public void Should_Change_Service_State()
         {
             IServiceManager manager = CakeHelper.CreateServiceManager();
             bool result = false;
