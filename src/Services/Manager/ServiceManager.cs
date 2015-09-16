@@ -16,6 +16,9 @@
 
 namespace Cake.Services
 {
+    /// <summary>
+    /// Responsible for controlling windows services
+    /// </summary>
     public class ServiceManager : IServiceManager
     {
         #region Fields (3)
@@ -62,7 +65,12 @@ namespace Cake.Services
 
 
         #region Functions (10)
-            /// <inheritdoc />
+            /// <summary>
+            /// Gets the <see cref="ServiceController"/> that is associated with an existing service on the specified computer.
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
             public ServiceController GetService(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -82,7 +90,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service exists
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service exists.</returns>
             public bool ServiceExists(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -117,7 +130,12 @@ namespace Cake.Services
 
 
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Gets the <see cref="ServiceControllerStatus"/> status of a service on the specified computer.
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>The <see cref="ServiceControllerStatus"/> status of a service on the specified computer.</returns>
             public ServiceControllerStatus GetStatus(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -134,7 +152,12 @@ namespace Cake.Services
                 return service.Status;
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service is installed
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is installed.</returns>
             public bool IsInstalled(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -160,7 +183,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service is running
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is running.</returns>
             public bool IsRunning(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -184,7 +212,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service is stopped
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is stopped.</returns>
             public bool IsStopped(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -208,7 +241,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service can be paused and continued
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service can be paused and continued.</returns>
             public bool CanPauseAndContinue(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -232,7 +270,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service can be stopped
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service can be stopped.</returns>
             public bool CanStop(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -256,7 +299,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Checks if the named service can be shutdown
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service can be shutdown.</returns>
             public bool CanShutdown(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -282,7 +330,14 @@ namespace Cake.Services
 
 
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Starts a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="timeout">The duration to wait for the command to complete.</param>
+            /// <param name="args">The arguments to pass to the service when starting</param>
+            /// <returns>If the service was started.</returns>
             public bool Start(string name, string computer = "", int timeout = 60000, string[] args = null)
             {
                 if (String.IsNullOrEmpty(name))
@@ -334,8 +389,14 @@ namespace Cake.Services
                     }
                 }
             }
-            
-            /// <inheritdoc />
+
+            /// <summary>
+            /// Stops a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="timeout">The duration to wait for the command to complete.</param>
+            /// <returns>If the service was stopped.</returns>
             public bool Stop(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -389,7 +450,13 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Restarts a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="timeout">The duration to wait for the command to complete.</param>
+            /// <returns>If the service was restarted.</returns>
             public bool Restart(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -411,7 +478,13 @@ namespace Cake.Services
 
 
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Pauses a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="timeout">The duration to wait for the command to complete.</param>
+            /// <returns>If the service was paused.</returns>
             public bool Pause(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -465,7 +538,13 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Continues a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="timeout">The duration to wait for the command to complete.</param>
+            /// <returns>If the service was continued.</returns>
             public bool Continue(string name, string computer = "", int timeout = 60000)
             {
                 if (String.IsNullOrEmpty(name))
@@ -520,7 +599,14 @@ namespace Cake.Services
             }
 
 
-            /// <inheritdoc />
+
+            /// <summary>
+            /// Executes a command on a named service
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="command">The command to execute.</param>
+            /// <returns>If the command was executed.</returns>
             public bool ExecuteCommand(string name, string computer = "", int command = 0)
             {
                 if (String.IsNullOrEmpty(name))
@@ -548,13 +634,23 @@ namespace Cake.Services
             }
 
 
-        
-            /// <inheritdoc />
+
+            /// <summary>
+            /// Installs a service on a computer
+            /// </summary>
+            /// <param name="settings">The settings to use when installing the service.</param>
+            /// <returns>If the service was installed.</returns>
             public void Install(InstallSettings settings)
             {
                 this.Install("", settings);
             }
 
+            /// <summary>
+            /// Installs a service on a computer
+            /// </summary>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <param name="settings">The settings to use when installing the service.</param>
+            /// <returns>If the service was installed.</returns>
             /// <inheritdoc />
             public void Install(string computer, InstallSettings settings)
             {
@@ -581,7 +677,12 @@ namespace Cake.Services
                 }
             }
 
-            /// <inheritdoc />
+            /// <summary>
+            /// Uninstalls a service from a computer
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service was uninstalled.</returns>
             public bool Uninstall(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))

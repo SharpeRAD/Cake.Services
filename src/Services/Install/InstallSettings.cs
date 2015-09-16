@@ -8,6 +8,9 @@
 
 namespace Cake.Services
 {
+    /// <summary>
+    /// Windows service installation settings.
+    /// </summary>
     public class InstallSettings
     {
         #region Properties (10)

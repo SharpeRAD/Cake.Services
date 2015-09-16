@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aliases\CakeAliases.cs" />
+    <Compile Include="Aliases\ServiceAliases.cs" />
     <Compile Include="Install\InstallSettings.cs" />
     <Compile Include="Install\InstallSettingsExtensions.cs" />
     <Compile Include="Interfaces\IServiceManager.cs" />

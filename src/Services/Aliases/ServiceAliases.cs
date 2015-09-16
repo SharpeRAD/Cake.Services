@@ -13,10 +13,18 @@
 
 namespace Cake.Services
 {
+    /// <summary>
+    /// Windows service aliases.
+    /// </summary>
     [CakeAliasCategory("Services")]
     [CakeNamespaceImport("System.ServiceProcess")]
-    public static class CakeAliases
+    public static class ServiceAliases
     {
+        /// <summary>
+        /// Gets the <see cref="ServiceManager"/> that is used to control windows services
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <returns>The <see cref="ServiceManager"/> used to control services.</returns>
         private static ServiceManager CreateManager(this ICakeContext context)
         {
             return new ServiceManager(context.Environment, context.Log, new PowershellRunner(context.Environment, context.Log));
