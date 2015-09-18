@@ -1,14 +1,11 @@
 ﻿#region Using Statements
     using System;
-    using System.Text;
     using System.Linq;
-    using System.Collections.ObjectModel;
     using System.ServiceProcess;
 
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Diagnostics;
-    using Cake.Core.Annotations;
     using Cake.Powershell;
 #endregion
 

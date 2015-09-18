@@ -1,6 +1,4 @@
 ﻿#region Using Statements
-    using System;
-
     using Cake.Core.IO;
 #endregion
 

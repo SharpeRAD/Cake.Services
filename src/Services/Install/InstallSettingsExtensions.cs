@@ -1,10 +1,7 @@
 ﻿#region Using Statements
     using System;
-    using System.Collections.Generic;
 
-    using Cake.Core;
     using Cake.Core.IO;
-    using Cake.Core.IO.Arguments;
 #endregion
 
 

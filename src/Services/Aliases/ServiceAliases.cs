@@ -1,10 +1,7 @@
 ﻿#region Using Statements
-    using System;
-    using System.Collections.ObjectModel;
     using System.ServiceProcess;
 
     using Cake.Core;
-    using Cake.Core.IO;
     using Cake.Core.Annotations;
     using Cake.Powershell;
 #endregion

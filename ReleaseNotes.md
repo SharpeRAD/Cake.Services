@@ -1,3 +1,6 @@
+### New in 0.1.3 (Released 2015/09/18)
+* Complete Documentation
+
 ### New in 0.1.2 (Released 2015/08/06)
 * Force Build
 
