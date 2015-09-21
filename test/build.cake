@@ -19,15 +19,15 @@ Task("Windows-Service")
     .Description("Stop / Start windows service")
     .Does(() =>
 	{
-		bool status = IsServiceRunning("MpsSvc", "");
+		bool status = IsServiceRunning("MpsSvc");
 
 		if (status)
 		{
-			StopService("MpsSvc", "", 60000);
+			StopService("MpsSvc");
 		}
 		else
 		{
-			StartService("MpsSvc", "", 60000, null);
+			StartService("MpsSvc");
 		}
 	});
 

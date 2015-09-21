@@ -36,6 +36,7 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
         [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceController GetService(this ICakeContext context, string name)
         {
             return context.CreateManager().GetService(name, "");
@@ -49,6 +50,7 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
         [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceController GetService(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetService(name, computer);
@@ -61,6 +63,7 @@ namespace Cake.Services
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <returns>The <see cref="ServiceControllerStatus"/> status of a service on the specified computer.</returns>
         [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name)
         {
             return context.CreateManager().GetStatus(name, "");
@@ -74,6 +77,7 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>The <see cref="ServiceControllerStatus"/> status of a service on the specified computer.</returns>
         [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
         public static ServiceControllerStatus GetServiceStatus(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().GetStatus(name, computer);

@@ -1,3 +1,6 @@
+### New in 0.1.4 (Released 2015/09/21)
+* Changed nuget references from dependencies to files
+
 ### New in 0.1.3 (Released 2015/09/18)
 * Complete Documentation
 

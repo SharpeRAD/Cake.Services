@@ -152,7 +152,8 @@ Task("Copy-Files")
     .IsDependentOn("Build")
     .Does(() =>
 {
-	CopyFileToDirectory("./lib/System.Management.Automation.dll", binDir);
+	CopyFileToDirectory("./lib/System.ServiceProcess.dll", binDir);
+    CopyFileToDirectory("./lib/System.Management.Automation.dll", binDir);
 
     CopyFileToDirectory(buildDir + "/Cake.Core.dll", binDir);
     CopyFileToDirectory(buildDir + "/Cake.Core.xml", binDir);
@@ -169,6 +170,8 @@ Task("Copy-Files")
 	CreateDirectory("./test/tools/Addins/Cake.Services/lib/net45/");
 
 	CopyFileToDirectory(buildDir + "/Cake.Services.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
+    CopyFileToDirectory(buildDir + "/Cake.Powershell.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
+    CopyFileToDirectory("./lib/System.ServiceProcess.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 	CopyFileToDirectory("./lib/System.Management.Automation.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 });
 
