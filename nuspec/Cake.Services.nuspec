@@ -19,10 +19,6 @@
       <frameworkAssemblies>
          <frameworkAssembly assemblyName="System.ServiceProcess" />
       </frameworkAssemblies>
-      
-      <dependencies>
-         <dependency id="Cake.Core" />
-      </dependencies>
    </metadata>
 
    <files>
