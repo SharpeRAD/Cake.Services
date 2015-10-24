@@ -1,3 +1,6 @@
+### New in 0.1.5 (Released 2015/10/24)
+* Remove Cake.Core from nuget
+
 ### New in 0.1.4 (Released 2015/09/21)
 * Changed nuget references from dependencies to files
 
