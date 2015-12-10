@@ -15,7 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA
 		..\.gitignore = ..\.gitignore
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
-		..\ReleaseNotes.md = ..\ReleaseNotes.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Services", "Services\Cake.Services.csproj", "{171DEB60-7434-4D28-980E-43F1D94920A3}"
@@ -24,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
+		..\ReleaseNotes.md = ..\ReleaseNotes.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897-6C64-42B0-B336-7A46480003B9}"
