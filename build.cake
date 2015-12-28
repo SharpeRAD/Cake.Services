@@ -155,6 +155,7 @@ Task("Copy-Files")
     CopyFileToDirectory(buildDir + "/Cake.Powershell.dll", binDir);
     CopyFileToDirectory(buildDir + "/Cake.Services.dll", binDir);
     CopyFileToDirectory(buildDir + "/Cake.Services.pdb", binDir);
+    CopyFileToDirectory(buildDir + "/Cake.Services.xml", binDir);
 
     CopyFileToDirectory("./lib/System.ServiceProcess.dll", binDir);
     CopyFileToDirectory("./lib/System.Management.Automation.dll", binDir);

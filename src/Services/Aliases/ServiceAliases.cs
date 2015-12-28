@@ -308,6 +308,7 @@ namespace Cake.Services
         /// <summary>
         /// Stops a named service
         /// </summary>
+        /// <param name="context">The cake context.</param>
         /// <param name="name">The name that identifies the service to the system.</param>
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>If the service was stopped.</returns>
