@@ -52,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aliases\ServiceAliases.cs" />
-    <Compile Include="Install\InstallSettings.cs" />
-    <Compile Include="Install\InstallSettingsExtensions.cs" />
+    <Compile Include="Manager\InstallSettings.cs" />
+    <Compile Include="Extensions\InstallSettingsExtensions.cs" />
     <Compile Include="Interfaces\IServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\ServiceManager.cs" />

@@ -60,14 +60,14 @@ namespace Cake.Services
         /// <param name="settings">The process settings.</param>
         /// <param name="name">The friendly name of the service</param>
         /// <returns>The same <see cref="InstallSettings"/> instance so that multiple calls can be chained.</returns>
-        public static InstallSettings SetDisplayname(this InstallSettings settings, string name)
+        public static InstallSettings SetDisplayName(this InstallSettings settings, string name)
         {
             if (settings == null)
             {
                 throw new ArgumentNullException("settings");
             }
 
-            settings.ServiceName = name;
+            settings.DisplayName = name;
             return settings;
         }
 

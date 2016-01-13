@@ -1,3 +1,6 @@
+### New in 0.1.8 (Released 2016/01/13)
+* Fix bug in InstallSettingsExtensions setting the wrong property
+
 ### New in 0.1.7 (Released 2015/12/28)
 * Add xml documentation
 
