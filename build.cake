@@ -4,6 +4,8 @@
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
+var tools = Argument("tools", "./tools");
+
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
@@ -56,7 +58,7 @@ Setup(() =>
 	NuGetInstall("xunit.runner.console", new NuGetInstallSettings 
 	{
 		ExcludeVersion  = true,
-		OutputDirectory = "./tools"
+		OutputDirectory = tools
     });
 });
 
@@ -166,12 +168,10 @@ Task("Copy-Files")
 
 
 
-	CopyDirectory("./tools/",  "./test/tools/");
 	CreateDirectory("./test/tools/Addins/Cake.Services/lib/net45/");
 
 	CopyFileToDirectory(buildDir + "/Cake.Services.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
     CopyFileToDirectory(buildDir + "/Cake.Powershell.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
-
     CopyFileToDirectory("./lib/System.ServiceProcess.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 	CopyFileToDirectory("./lib/System.Management.Automation.dll", "./test/tools/Addins/Cake.Services/lib/net45/");
 });
