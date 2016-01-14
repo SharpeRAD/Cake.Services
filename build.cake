@@ -16,7 +16,7 @@ var appName = "Cake.Services";
 
 
 //////////////////////////////////////////////////////////////////////
-// PREPARATION
+// VARIABLES
 //////////////////////////////////////////////////////////////////////
 
 // Get whether or not this is a local build.
@@ -39,10 +39,12 @@ var testResultsDir = buildResultDir + "/test-results";
 var nugetRoot = buildResultDir + "/nuget";
 var binDir = buildResultDir + "/bin";
 
-//Get Solutions
+// Get Solutions
 var solutions       = GetFiles("./**/*.sln");
 
-
+// Package
+var zipPackage = buildResultDir + "/Cake-Services-v" + semVersion + ".zip";
+var nugetPackage = nugetRoot + "/Cake.Services." + version + ".nupkg";
 
 
 
@@ -62,8 +64,6 @@ Setup(() =>
     });
 });
 
-
-
 Teardown(() =>
 {
 	// Executed AFTER the last task.
@@ -75,7 +75,7 @@ Teardown(() =>
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// TASK DEFINITIONS
+// PREPARE
 ///////////////////////////////////////////////////////////////////////////////
 
 Task("Clean")
@@ -88,8 +88,6 @@ Task("Clean")
         buildResultDir, binDir, testResultsDir, nugetRoot
 	});
 });
-
-
 
 Task("Restore-Nuget-Packages")
 	.IsDependentOn("Clean")
@@ -104,6 +102,12 @@ Task("Restore-Nuget-Packages")
 });
 
 
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// BUILD
+///////////////////////////////////////////////////////////////////////////////
 
 Task("Patch-Assembly-Info")
     .IsDependentOn("Restore-Nuget-Packages")
@@ -120,8 +124,6 @@ Task("Patch-Assembly-Info")
         Copyright = "Copyright (c) Phillip Sharpe 2015"
     });
 });
-
-
 
 Task("Build")
     .IsDependentOn("Patch-Assembly-Info")
@@ -152,6 +154,12 @@ Task("Run-Unit-Tests")
 
 
 
+
+
+///////////////////////////////////////////////////////////////////////////////
+// PACKAGE
+///////////////////////////////////////////////////////////////////////////////
+
 Task("Copy-Files")
     .IsDependentOn("Build")
     .Does(() =>
@@ -180,9 +188,7 @@ Task("Zip-Files")
     .IsDependentOn("Copy-Files")
     .Does(() =>
 {
-    var filename = buildResultDir + "/Cake-Services-v" + semVersion + ".zip";
-
-    Zip(binDir, filename);
+    Zip(binDir, zipPackage);
 });
 
 
@@ -202,26 +208,6 @@ Task("Create-NuGet-Packages")
     });
 });
 
-
-
-Task("Update-AppVeyor-Build-Number")
-    .WithCriteria(() => isRunningOnAppVeyor)
-    .Does(() =>
-{
-    AppVeyor.UpdateBuildVersion(semVersion);
-}); 
-
-Task("Upload-AppVeyor-Artifacts")
-    .IsDependentOn("Package")
-    .WithCriteria(() => isRunningOnAppVeyor)
-    .Does(() =>
-{
-    var artifact = new FilePath(buildResultDir + "/Cake-Services-v" + semVersion + ".zip");
-    AppVeyor.UploadArtifact(artifact);
-}); 
-
-
-
 Task("Publish-Nuget")
 	.IsDependentOn("Create-NuGet-Packages")
     .WithCriteria(() => isRunningOnAppVeyor)
@@ -239,15 +225,66 @@ Task("Publish-Nuget")
 
 
     // Push the package.
-    var package = nugetRoot + "/Cake.Services." + version + ".nupkg";
-
-    NuGetPush(package, new NuGetPushSettings 
+    NuGetPush(nugetPackage, new NuGetPushSettings 
 	{
         ApiKey = apiKey
     }); 
 });
 
+Task("Publish-MyGet")
+    .IsDependentOn("Create-NuGet-Packages")
+    .WithCriteria(() => isRunningOnAppVeyor)
+    .WithCriteria(() => !isPullRequest) 
+    .Does(() =>
+{
+    // Resolve the API key.
+    var apiKey = EnvironmentVariable("MYGET_API_KEY");
+	
+    if(string.IsNullOrEmpty(apiKey)) 
+	{
+        throw new InvalidOperationException("Could not resolve MyGet API key.");
+    }
 
+	
+	
+    // Push the package.
+    NuGetPush(nugetPackage, new NuGetPushSettings 
+	{
+        Source = "https://www.myget.org/F/cake/api/v2/package",
+        ApiKey = apiKey
+    });
+});
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// APPVEYOR
+///////////////////////////////////////////////////////////////////////////////
+
+Task("Update-AppVeyor-Build-Number")
+    .WithCriteria(() => isRunningOnAppVeyor)
+    .Does(() =>
+{
+    AppVeyor.UpdateBuildVersion(semVersion);
+}); 
+
+Task("Upload-AppVeyor-Artifacts")
+    .IsDependentOn("Zip-Files")
+    .WithCriteria(() => isRunningOnAppVeyor)
+    .Does(() =>
+{
+    AppVeyor.UploadArtifact(zipPackage);
+}); 
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// ALERT
+///////////////////////////////////////////////////////////////////////////////
 
 Task("Slack")
     .Does(() =>
@@ -262,21 +299,9 @@ Task("Slack")
 
 
 
-	//Get Text
-	var text = "";
-
-    if (isPullRequest)
-    {
-        text = "PR submitted for " + appName;
-    }
-    else
-    {
-        text = "Published " + appName + " v" + version;
-    }
-
-
-
 	// Post Message
+	var text = "Published " + appName + " v" + version;
+
 	var result = Slack.Chat.PostMessage(token, "#code", text);
 
 	if (result.Ok)
@@ -296,7 +321,7 @@ Task("Slack")
 
 
 //////////////////////////////////////////////////////////////////////
-// TASK TARGETS
+// TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Package")
@@ -304,12 +329,13 @@ Task("Package")
     .IsDependentOn("Create-NuGet-Packages");
 
 Task("Publish")
-    .IsDependentOn("Publish-Nuget");
+    .IsDependentOn("Publish-Nuget")
+	.IsDependentOn("Publish-MyGet");
 
 Task("AppVeyor")
+	.IsDependentOn("Publish")
     .IsDependentOn("Update-AppVeyor-Build-Number")
     .IsDependentOn("Upload-AppVeyor-Artifacts")
-    .IsDependentOn("Publish-Nuget")
     .IsDependentOn("Slack");
     
 

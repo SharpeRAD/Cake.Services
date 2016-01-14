@@ -46,7 +46,7 @@ else
 
 	if (!(Test-Path $TOOLS_DIR)) 
 	{
-		Write-Host "Creating tools directory"
+		Write-Host "Creating tools directory '$TOOLS_DIR'"
 		New-Item $TOOLS_DIR -itemtype directory
 	}
 }
