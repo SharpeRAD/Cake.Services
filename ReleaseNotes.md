@@ -1,3 +1,6 @@
+### New in 0.1.9 (Released 2016/01/14)
+* Force new build
+
 ### New in 0.1.8 (Released 2016/01/13)
 * Fix bug in InstallSettingsExtensions setting the wrong property
 

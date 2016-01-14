@@ -34,17 +34,20 @@ var semVersion = local ? version : (version + string.Concat("-build-", buildNumb
 
 // Define directories.
 var buildDir = "./src/Services/bin/" + configuration;
+var buildTestDir = "./src/Powershell.Tests/bin/" + configuration;
+
 var buildResultDir = "./build/v" + semVersion;
 var testResultsDir = buildResultDir + "/test-results";
 var nugetRoot = buildResultDir + "/nuget";
 var binDir = buildResultDir + "/bin";
 
 // Get Solutions
-var solutions       = GetFiles("./**/*.sln");
+var solutions       = GetFiles("./src/*.sln");
 
 // Package
 var zipPackage = buildResultDir + "/Cake-Services-v" + semVersion + ".zip";
-var nugetPackage = nugetRoot + "/Cake.Services." + version + ".nupkg";
+
+
 
 
 
@@ -85,7 +88,8 @@ Task("Clean")
 	Information("Cleaning old files");
 	CleanDirectories(new DirectoryPath[] 
 	{
-        buildResultDir, binDir, testResultsDir, nugetRoot
+        buildDir, buildTestDir, buildResultDir, 
+        binDir, testResultsDir, nugetRoot
 	});
 });
 
@@ -225,34 +229,12 @@ Task("Publish-Nuget")
 
 
     // Push the package.
-    NuGetPush(nugetPackage, new NuGetPushSettings 
+	var package = nugetRoot + "/Cake.Services." + version + ".nupkg";
+	
+    NuGetPush(package, new NuGetPushSettings 
 	{
         ApiKey = apiKey
     }); 
-});
-
-Task("Publish-MyGet")
-    .IsDependentOn("Create-NuGet-Packages")
-    .WithCriteria(() => isRunningOnAppVeyor)
-    .WithCriteria(() => !isPullRequest) 
-    .Does(() =>
-{
-    // Resolve the API key.
-    var apiKey = EnvironmentVariable("MYGET_API_KEY");
-	
-    if(string.IsNullOrEmpty(apiKey)) 
-	{
-        throw new InvalidOperationException("Could not resolve MyGet API key.");
-    }
-
-	
-	
-    // Push the package.
-    NuGetPush(nugetPackage, new NuGetPushSettings 
-	{
-        Source = "https://www.myget.org/F/cake/api/v2/package",
-        ApiKey = apiKey
-    });
 });
 
 
@@ -283,7 +265,7 @@ Task("Upload-AppVeyor-Artifacts")
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// ALERT
+// MESSAGE
 ///////////////////////////////////////////////////////////////////////////////
 
 Task("Slack")
@@ -301,7 +283,7 @@ Task("Slack")
 
 	// Post Message
 	var text = "Published " + appName + " v" + version;
-
+	
 	var result = Slack.Chat.PostMessage(token, "#code", text);
 
 	if (result.Ok)
@@ -329,8 +311,7 @@ Task("Package")
     .IsDependentOn("Create-NuGet-Packages");
 
 Task("Publish")
-    .IsDependentOn("Publish-Nuget")
-	.IsDependentOn("Publish-MyGet");
+    .IsDependentOn("Publish-Nuget");
 
 Task("AppVeyor")
 	.IsDependentOn("Publish")
