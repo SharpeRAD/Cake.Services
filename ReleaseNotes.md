@@ -1,3 +1,6 @@
+### New in 0.2.0 (Released 2016/01/16)
+* Fixed SolutionInfo link
+
 ### New in 0.1.9 (Released 2016/01/14)
 * Force new build
 

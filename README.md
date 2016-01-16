@@ -1,11 +1,23 @@
 # Cake.Services
 Cake-Build addin that extends Cake with windows service commands
 
-[![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-services)
+[![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/SharpeRAD/cake-services)
 
 [![cakebuild.net](https://img.shields.io/badge/WWW-cakebuild.net-blue.svg)](http://cakebuild.net/)
 
-[![Join the chat at https://gitter.im/cake-build/cake](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cake-build/cake?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/cake-build/cake](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cake-build/cake)
+
+
+
+## Table of contents
+
+1. [Implemented functionality](https://github.com/SharpeRAD/Cake.Services#implemented-functionality)
+2. [Referencing](https://github.com/SharpeRAD/Cake.Services#referencing)
+3. [Usage](https://github.com/SharpeRAD/Cake.Services#usage)
+4. [Example](https://github.com/SharpeRAD/Cake.Services#example)
+5. [Plays well with](https://github.com/SharpeRAD/Cake.Services#plays-well-with)
+6. [License](https://github.com/SharpeRAD/Cake.Services#license)
+7. [Share the love](https://github.com/SharpeRAD/Cake.Services#share-the-love)
 
 
 
@@ -47,7 +59,6 @@ or directly in your build script via a cake addin:
 
 ```csharp
 #addin "Cake.Services"
-
 
 Task("Start-Service")
     .Description("Start a stopped windows service")
@@ -99,34 +110,34 @@ Task("Get-Service")
 {
     ServiceController controller = GetService("MpsSvc", "remote-location");
 
-	if (controller != null)
-	{
-		controller.Stop();
-	}
+    if (controller != null)
+    {
+        controller.Stop();
+    }
 });
 
 Task("Is-Service-Running")
-    .Description("Check if a winodws service is running")
+    .Description("Check if a windows service is running")
     .Does(() =>
 {
     bool status = IsServiceRunning("MpsSvc");
 
-	if (status)
-	{
-		Debug("YAY!");
-	}
+    if (status)
+    {
+        Debug("YAY!");
+    }
 });
 
 Task("Is-Service-Stopped")
-    .Description("Check if a winodws service is stopped")
+    .Description("Check if a windows service is stopped")
     .Does(() =>
 {
     bool status = IsServiceStopped("MpsSvc");
 
-	if (status)
-	{
-		Debug("YAY!");
-	}
+    if (status)
+    {
+        Debug("YAY!");
+    }
 });
 
 
@@ -135,17 +146,17 @@ Task("Install-Service")
     .Does(() =>
 {
     InstallService("remote-location", new InstallSettings()
-	{
-		ServiceName = "Popup",
-		DisplayName = "Annoying popup",
-		Description = "Displays adds everytime you move the mouse",
+    {
+        ServiceName = "Popup",
+        DisplayName = "Annoying popup",
+        Description = "Displays adds every time you move the mouse",
 
-		ExecutablePath = "C:/LOL/Popup.exe",
-		StartMode = "auto",
+        ExecutablePath = "C:/LOL/Popup.exe",
+        StartMode = "auto",
 
-		Username = "Admin",
-		Password = "pass1"
-	});
+        Username = "Admin",
+        Password = "pass1"
+    });
 });
 
 Task("Uninstall-Service")
@@ -155,7 +166,6 @@ Task("Uninstall-Service")
     UninstallService("Popup", "remote-location");
 });
 
-
 RunTarget("Start-Service");
 ```
 
@@ -163,4 +173,26 @@ RunTarget("Start-Service");
 
 ## Example
 
-A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.Services/blob/master/test/build.cake)
+A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.Services/blob/master/test/build.cake).
+
+
+
+## Plays well with
+
+If your looking to manage Topshelf windows services its worth checking out [Cake.Topshelf](https://github.com/SharpeRAD/Cake.Topshelf).
+
+If your looking for a way to trigger cake tasks based on windows events or at scheduled intervals then check out [Cake.CakeBoss](https://github.com/SharpeRAD/CakeBoss).
+
+
+
+## License
+
+Copyright � 2015 - 2016 Phillip Sharpe
+
+Cake.Services is provided as-is under the MIT license. For more information see [LICENSE](https://github.com/SharpeRAD/Cake.Services/blob/master/LICENSE).
+
+
+
+## Share the love
+
+If this project helps you in anyway then please :star: the repository.

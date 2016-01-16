@@ -18,18 +18,18 @@ var configuration = Argument("configuration", "Release");
 Task("Windows-Service")
     .Description("Stop / Start windows service")
     .Does(() =>
-	{
-		bool status = IsServiceRunning("MpsSvc");
+    {
+        bool status = IsServiceRunning("MpsSvc");
 
-		if (status)
-		{
-			StopService("MpsSvc");
-		}
-		else
-		{
-			StartService("MpsSvc");
-		}
-	});
+        if (status)
+        {
+            StopService("MpsSvc");
+        }
+        else
+        {
+            StartService("MpsSvc");
+        }
+    });
 
 
 
