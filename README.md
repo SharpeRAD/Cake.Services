@@ -181,13 +181,13 @@ A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.Se
 
 If your looking to manage Topshelf windows services its worth checking out [Cake.Topshelf](https://github.com/SharpeRAD/Cake.Topshelf).
 
-If your looking for a way to trigger cake tasks based on windows events or at scheduled intervals then check out [Cake.CakeBoss](https://github.com/SharpeRAD/CakeBoss).
+If your looking for a way to trigger cake tasks based on windows events or at scheduled intervals then check out [CakeBoss](https://github.com/SharpeRAD/CakeBoss).
 
 
 
 ## License
 
-Copyright � 2015 - 2016 Phillip Sharpe
+Copyright (c) 2015 - 2016 Phillip Sharpe
 
 Cake.Services is provided as-is under the MIT license. For more information see [LICENSE](https://github.com/SharpeRAD/Cake.Services/blob/master/LICENSE).
 
