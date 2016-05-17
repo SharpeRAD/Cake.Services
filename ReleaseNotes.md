@@ -1,3 +1,8 @@
+### New in 0.2.1 (Released 2016/05/17)
+* Add nuget dependencies
+* Update all packages
+* Setup / Teardown with context
+
 ### New in 0.2.0 (Released 2016/01/16)
 * Fixed SolutionInfo link
 
