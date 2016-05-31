@@ -1,3 +1,6 @@
+### New in 0.2.2 (Released 2016/05/31)
+* Fix incorrect service exists check in the install method
+
 ### New in 0.2.1 (Released 2016/05/17)
 * Add nuget dependencies
 * Update all packages

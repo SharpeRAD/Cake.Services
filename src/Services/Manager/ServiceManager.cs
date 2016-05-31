@@ -774,7 +774,7 @@ namespace Cake.Services
                 //Build Script
                 string script = "";
 
-                if (this.ServiceExists(settings.ServiceName, computer))
+                if (!this.ServiceExists(settings.ServiceName, computer))
                 {
                     //Create
                     script = "& \"sc.exe\" create";
