@@ -49,8 +49,17 @@ namespace Cake.Services.Tests
                     DebugLog.Lines = new List<string>();
                 }
 
+                format = String.Format(format, args);
                 DebugLog.Lines.Add(format);
-                Debug.WriteLine(format);
+
+                if (Debugger.IsAttached)
+                {
+                    Debug.WriteLine(format);
+                }
+                else
+                {
+                    Console.WriteLine(format);
+                }
             }
             catch { }
         }
