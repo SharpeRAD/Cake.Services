@@ -83,7 +83,30 @@ namespace Cake.Services
             return context.CreateManager().GetStatus(name, computer);
         }
 
+        /// <summary>
+        /// Checks if the named service is continuing
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is continuing.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceContinuing(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsContinuing(name, "");
+        }
 
+        /// <summary>
+        /// Checks if the named service is continuing
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is continuing.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceContinuing(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsContinuing(name, computer);
+        }
 
         /// <summary>
         /// Checks if the named service is installed
@@ -108,6 +131,58 @@ namespace Cake.Services
         public static bool IsServiceInstalled(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsInstalled(name, computer);
+        }
+
+        /// <summary>
+        /// Checks if the named service is paused
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is paused.</returns>
+        [CakeMethodAlias]
+        public static bool IsServicePaused(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsPaused(name, "");
+        }
+
+        /// <summary>
+        /// Checks if the named service is paused
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is paused.</returns>
+        [CakeMethodAlias]
+        public static bool IsServicePaused(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsPaused(name, computer);
+
+        }
+
+        /// <summary>
+        /// Checks if the named service is pausing
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is pausing.</returns>
+        [CakeMethodAlias]
+        public static bool IsServicePausing(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsPausing(name, "");
+        }
+
+        /// <summary>
+        /// Checks if the named service is pausing
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is pausing.</returns>
+        [CakeMethodAlias]
+        public static bool IsServicePausing(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsPausing(name, computer);
+
         }
 
         /// <summary>
@@ -136,6 +211,31 @@ namespace Cake.Services
         }
 
         /// <summary>
+        /// Checks if the named service is starting
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is starting.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceStarting(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsStarting(name, "");
+        }
+
+        /// <summary>
+        /// Checks if the named service is starting
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is starting.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceStarting(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsStarting(name, computer);
+        }
+
+        /// <summary>
         /// Checks if the named service is stopped
         /// </summary>
         /// <param name="context">The cake context.</param>
@@ -160,6 +260,31 @@ namespace Cake.Services
             return context.CreateManager().IsStopped(name, computer);
         }
 
+        /// <summary>
+        /// Checks if the named service is stopping
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <returns>If the service is stopping.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceStopping(this ICakeContext context, string name)
+        {
+            return context.CreateManager().IsStopping(name, "");
+        }
+
+        /// <summary>
+        /// Checks if the named service is stopping
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="name">The name that identifies the service to the system.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>If the service is stopping.</returns>
+        [CakeMethodAlias]
+        public static bool IsServiceStopping(this ICakeContext context, string name, string computer)
+        {
+            return context.CreateManager().IsStopping(name, computer);
+
+        }
 
 
         /// <summary>

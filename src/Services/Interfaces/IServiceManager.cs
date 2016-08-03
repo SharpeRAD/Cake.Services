@@ -39,12 +39,38 @@ namespace Cake.Services
             ServiceControllerStatus GetStatus(string name, string computer = "");
 
             /// <summary>
+            /// Checks if the named service is continuing
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is continuing.</returns>
+            bool IsContinuing(string name, string computer = "");
+
+
+            /// <summary>
             /// Checks if the named service is installed
             /// </summary>
             /// <param name="name">The name that identifies the service to the system.</param>
             /// <param name="computer">The computer on which the service resides.</param>
             /// <returns>If the service is installed.</returns>
             bool IsInstalled(string name, string computer = "");
+
+            /// <summary>
+            /// Checks if the named service is paused
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is paused.</returns>
+            bool IsPaused(string name, string computer = "");
+
+
+            /// <summary>
+            /// Checks if the named service is pausing
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is pausing.</returns>
+            bool IsPausing(string name, string computer = "");
 
             /// <summary>
             /// Checks if the named service is running
@@ -55,6 +81,14 @@ namespace Cake.Services
             bool IsRunning(string name, string computer = "");
 
             /// <summary>
+            /// Checks if the named service is starting
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is starting.</returns>
+            bool IsStarting(string name, string computer = "");
+
+            /// <summary>
             /// Checks if the named service is stopped
             /// </summary>
             /// <param name="name">The name that identifies the service to the system.</param>
@@ -62,7 +96,13 @@ namespace Cake.Services
             /// <returns>If the service is stopped.</returns>
             bool IsStopped(string name, string computer = "");
 
-
+            ///<summary>
+            /// Checks if the named service is stopping
+            /// </summary>
+            /// /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is stopping.</returns>
+            bool IsStopping(string name, string computer = "");
 
             /// <summary>
             /// Checks if the named service can be paused and continued
