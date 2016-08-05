@@ -149,6 +149,29 @@ namespace Cake.Services
                 return service.Status;
             }
 
+            public bool IsContinuing(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceControllerStatus status = this.GetStatus(name, computer);
+
+                if (status == ServiceControllerStatus.ContinuePending)
+                {
+                    _Log.Information(string.Format("The service {0} is continuing.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not continuing!", name));
+                    return false;
+                }
+            }
+
             /// <summary>
             /// Checks if the named service is installed
             /// </summary>
@@ -176,6 +199,52 @@ namespace Cake.Services
                 catch
                 {
                     _Log.Information(string.Format("The service {0} is not installed!", name));
+                    return false;
+                }
+            }
+
+            public bool IsPaused(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceControllerStatus status = this.GetStatus(name, computer);
+
+                if (status == ServiceControllerStatus.Paused)
+                {
+                    _Log.Information(string.Format("The service {0} is paused.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not paused!", name));
+                    return false;
+                }
+            }
+
+            public bool IsPausing(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceControllerStatus status = this.GetStatus(name, computer);
+
+                if (status == ServiceControllerStatus.PausePending)
+                {
+                    _Log.Information(string.Format("The service {0} is pausing.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not pausing!", name));
                     return false;
                 }
             }
@@ -209,6 +278,29 @@ namespace Cake.Services
                 }
             }
 
+            public bool IsStarting(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceControllerStatus status = this.GetStatus(name, computer);
+
+                if (status == ServiceControllerStatus.StartPending)
+                {
+                    _Log.Information(string.Format("The service {0} is starting.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not starting!", name));
+                    return false;
+                }
+            }
+
             /// <summary>
             /// Checks if the named service is stopped
             /// </summary>
@@ -234,6 +326,35 @@ namespace Cake.Services
                 else
                 {
                     _Log.Information(string.Format("The service {0} is not stopped!", name));
+                    return false;
+                }
+            }
+
+            ///<summary>
+            /// Checks if the named service is stopping
+            /// </summary>
+            /// /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is stopping.</returns>
+            public bool IsStopping(string name, string computer = "")
+            {
+                if (String.IsNullOrEmpty(name))
+                {
+                    throw new ArgumentNullException("name");
+                }
+
+
+
+                ServiceControllerStatus status = this.GetStatus(name, computer);
+
+                if (status == ServiceControllerStatus.StopPending)
+                {
+                    _Log.Information(string.Format("The service {0} is stopping.", name));
+                    return true;
+                }
+                else
+                {
+                    _Log.Information(string.Format("The service {0} is not stopping!", name));
                     return false;
                 }
             }
