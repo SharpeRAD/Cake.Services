@@ -149,6 +149,12 @@ namespace Cake.Services
                 return service.Status;
             }
 
+            /// <summary>
+            /// Checks if the named service is continuing
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is continuing.</returns>
             public bool IsContinuing(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -203,6 +209,12 @@ namespace Cake.Services
                 }
             }
 
+            /// <summary>
+            /// Checks if the named service is paused
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is paused.</returns>
             public bool IsPaused(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -226,6 +238,12 @@ namespace Cake.Services
                 }
             }
 
+            /// <summary>
+            /// Checks if the named service is pausing
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is pausing.</returns>
             public bool IsPausing(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
@@ -248,6 +266,7 @@ namespace Cake.Services
                     return false;
                 }
             }
+
 
             /// <summary>
             /// Checks if the named service is running
@@ -278,6 +297,12 @@ namespace Cake.Services
                 }
             }
 
+            /// <summary>
+            /// Checks if the named service is starting
+            /// </summary>
+            /// <param name="name">The name that identifies the service to the system.</param>
+            /// <param name="computer">The computer on which the service resides.</param>
+            /// <returns>If the service is starting.</returns>
             public bool IsStarting(string name, string computer = "")
             {
                 if (String.IsNullOrEmpty(name))
