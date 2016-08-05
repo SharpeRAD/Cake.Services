@@ -1,3 +1,6 @@
+### New in 0.2.3 (Released 2016/08/05)
+* Added status Aliases
+
 ### New in 0.2.2 (Released 2016/05/31)
 * Fix incorrect service exists check in the install method
 
