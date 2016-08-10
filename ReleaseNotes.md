@@ -1,3 +1,6 @@
+### New in 0.2.4 (Released 2016/08/10)
+* Fixed bugs with Install Arguments and StartMode
+
 ### New in 0.2.3 (Released 2016/08/05)
 * Added status Aliases
 
