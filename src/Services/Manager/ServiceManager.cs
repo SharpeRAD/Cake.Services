@@ -869,7 +869,9 @@ namespace Cake.Services
                 //Get Arguments
                 ProcessArgumentBuilder args = new ProcessArgumentBuilder();
 
-                string pathArgs = settings.Arguments.Render();
+                string pathArgs = string.Empty; 
+                if (settings.Arguments != null) 
+                    pathArgs = settings.Arguments.Render(); 
                 this.SetFilePath(computer, settings);
 
 
@@ -902,7 +904,7 @@ namespace Cake.Services
 
                 if (!String.IsNullOrEmpty(settings.StartMode))
                 {
-                    args.AppendQuoted("start", settings.Dependencies);
+                    args.AppendQuoted("start", settings.StartMode);
                 }
 
                 if (!String.IsNullOrEmpty(settings.Username))
