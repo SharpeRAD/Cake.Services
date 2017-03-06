@@ -1,3 +1,6 @@
+### New in 0.2.6 (Released 2017/03/06)
+* Don't use strong named references
+
 ### New in 0.2.5 (Released 2017/02/03)
 * Update Cake.Core references
 

@@ -36,14 +36,14 @@
       <HintPath>..\packages\Cake.Core.0.17.0\lib\net45\Cake.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Cake.Powershell, Version=0.2.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Powershell.0.2.8\lib\net45\Cake.Powershell.dll</HintPath>
+    <Reference Include="Cake.Powershell, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Powershell.0.3.1\lib\net45\Cake.Powershell.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Powershell.0.2.8\lib\net45\System.Management.Automation.dll</HintPath>
+    <Reference Include="System.Management.Automation">
+      <HintPath>..\packages\Cake.Powershell.0.3.1\lib\net45\System.Management.Automation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ServiceProcess" />
@@ -66,7 +66,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
