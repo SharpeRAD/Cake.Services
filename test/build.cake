@@ -1,4 +1,5 @@
-#addin "Cake.Services"
+#addin "Cake.Powershell&version=0.3.1"
+#addin "Cake.Services&version=0.2.6"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS

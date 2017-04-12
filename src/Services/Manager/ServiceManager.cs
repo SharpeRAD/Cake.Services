@@ -267,7 +267,6 @@ namespace Cake.Services
                 }
             }
 
-
             /// <summary>
             /// Checks if the named service is running
             /// </summary>
@@ -863,15 +862,18 @@ namespace Cake.Services
 
 
 
-            //Helpers
             private void PowershellCreateCommand(string computer, InstallSettings settings)
             {
                 //Get Arguments
                 ProcessArgumentBuilder args = new ProcessArgumentBuilder();
 
-                string pathArgs = string.Empty; 
-                if (settings.Arguments != null) 
-                    pathArgs = settings.Arguments.Render(); 
+                string pathArgs = "";
+
+                if (settings.Arguments != null)
+                {
+                    pathArgs = settings.Arguments.Render();
+                }
+
                 this.SetFilePath(computer, settings);
 
 
@@ -883,38 +885,38 @@ namespace Cake.Services
 
                 if (string.IsNullOrEmpty(pathArgs))
                 {
-                    args.AppendQuoted("binPath", settings.ExecutablePath.FullPath);
+                    args.AppendSwitchQuoted("binPath", "=", settings.ExecutablePath.FullPath);
                 }
                 else
                 {
-                    args.AppendQuoted("binPath", "\\\"" + settings.ExecutablePath.FullPath + "\\\" " + pathArgs.Replace("\"", "\\\""));
+                    args.AppendSwitchQuoted("binPath", "=", "\\\"" + settings.ExecutablePath.FullPath + "\\\" " + pathArgs.Replace("\"", "\\\""));
                 }
 
 
 
                 if (!String.IsNullOrEmpty(settings.DisplayName))
                 {
-                    args.AppendQuoted("DisplayName", settings.DisplayName);
+                    args.AppendSwitchQuoted("DisplayName", "=", settings.DisplayName);
                 }
 
                 if (!String.IsNullOrEmpty(settings.Dependencies))
                 {
-                    args.AppendQuoted("depend", settings.Dependencies);
+                    args.AppendSwitchQuoted("depend", "=", settings.Dependencies);
                 }
 
                 if (!String.IsNullOrEmpty(settings.StartMode))
                 {
-                    args.AppendQuoted("start", settings.StartMode);
+                    args.AppendSwitchQuoted("start", "=", settings.StartMode);
                 }
 
                 if (!String.IsNullOrEmpty(settings.Username))
                 {
-                    args.AppendQuoted("obj", settings.Username);
+                    args.AppendSwitchQuoted("obj", "=", settings.Username);
                 }
 
                 if (!String.IsNullOrEmpty(settings.Password))
                 {
-                    args.AppendQuotedSecret("password", settings.Password);
+                    args.AppendSwitchQuotedSecret("password", "=", settings.Password);
                 }
 
 
@@ -970,6 +972,8 @@ namespace Cake.Services
                     args.AppendQuoted(settings.Description);
                 });
 
+
+
                 //Remote Connection
                 if (!String.IsNullOrEmpty(computer))
                 {
@@ -983,8 +987,6 @@ namespace Cake.Services
                 //Run Command
                 _PowershellRunner.Start("& \"sc.exe\" description", powerSettings);
             }
-
-
 
             private void SetWorkingDirectory(PowershellSettings settings)
             {
