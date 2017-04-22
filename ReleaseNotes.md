@@ -1,3 +1,6 @@
+### New in 0.2.8 (Released 2017/04/22)
+* [Bug] Install command should include a space in the switch statement
+
 ### New in 0.2.7 (Released 2017/04/12)
 * [Bug] Install command should append using the switch statement
 
