@@ -12,6 +12,7 @@
     using Cake.Core.Diagnostics;
     using Cake.Core.IO;
     using Cake.Powershell;
+
 #endregion
 
 
@@ -58,6 +59,29 @@ namespace Cake.Services.Tests
             }
 
             Assert.True(result, "Check Rights");
+        }
+
+        [Fact]
+        public void Should_Construct_Arg_String()
+        {
+            ServiceManager manager = (ServiceManager) CakeHelper.CreateServiceManager();
+
+            var argumentBuilder = manager.CreateInstallArguments("", new InstallSettings()
+            {
+                ServiceName = "TestService",
+                ExecutablePath = @"C:\my\path\to\bin.exe",
+                DisplayName = "Test Service Display Name",
+                Dependencies = "TestDependencies",
+                Username = "TestUsername",
+                Password = "TestPasswordPassword",
+                StartMode = "TestStartMode"
+            });
+
+            var actual = argumentBuilder.Render();
+
+            var expected = @"""TestService"" binPath= ""C:/my/path/to/bin.exe"" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
+
+            Assert.Equal(expected, actual);
         }
     }
 }

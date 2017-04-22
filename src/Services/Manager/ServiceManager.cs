@@ -865,60 +865,7 @@ namespace Cake.Services
             private void PowershellCreateCommand(string computer, InstallSettings settings)
             {
                 //Get Arguments
-                ProcessArgumentBuilder args = new ProcessArgumentBuilder();
-
-                string pathArgs = "";
-
-                if (settings.Arguments != null)
-                {
-                    pathArgs = settings.Arguments.Render();
-                }
-
-                this.SetFilePath(computer, settings);
-
-
-
-                if (!String.IsNullOrEmpty(settings.ServiceName))
-                {
-                    args.AppendQuoted(settings.ServiceName);
-                }
-
-                if (string.IsNullOrEmpty(pathArgs))
-                {
-                    args.AppendSwitchQuoted("binPath", "=", settings.ExecutablePath.FullPath);
-                }
-                else
-                {
-                    args.AppendSwitchQuoted("binPath", "=", "\\\"" + settings.ExecutablePath.FullPath + "\\\" " + pathArgs.Replace("\"", "\\\""));
-                }
-
-
-
-                if (!String.IsNullOrEmpty(settings.DisplayName))
-                {
-                    args.AppendSwitchQuoted("DisplayName", "=", settings.DisplayName);
-                }
-
-                if (!String.IsNullOrEmpty(settings.Dependencies))
-                {
-                    args.AppendSwitchQuoted("depend", "=", settings.Dependencies);
-                }
-
-                if (!String.IsNullOrEmpty(settings.StartMode))
-                {
-                    args.AppendSwitchQuoted("start", "=", settings.StartMode);
-                }
-
-                if (!String.IsNullOrEmpty(settings.Username))
-                {
-                    args.AppendSwitchQuoted("obj", "=", settings.Username);
-                }
-
-                if (!String.IsNullOrEmpty(settings.Password))
-                {
-                    args.AppendSwitchQuotedSecret("password", "=", settings.Password);
-                }
-
+                var args = CreateInstallArguments(computer, settings);
 
 
                 //Build Script
@@ -960,7 +907,70 @@ namespace Cake.Services
                 _PowershellRunner.Start(script, powerSettings);
             }
 
-            private void PowershellDescriptionCommand(string computer, InstallSettings settings)
+        /// <summary>
+        /// Assemble the args to pass to sc.exe
+        /// </summary>
+        /// <param name="computer"></param>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public ProcessArgumentBuilder CreateInstallArguments(string computer, InstallSettings settings)
+        {
+            ProcessArgumentBuilder args = new ProcessArgumentBuilder();
+
+            string pathArgs = "";
+
+            if (settings.Arguments != null)
+            {
+                pathArgs = settings.Arguments.Render();
+            }
+
+            this.SetFilePath(computer, settings);
+
+
+            if (!String.IsNullOrEmpty(settings.ServiceName))
+            {
+                args.AppendQuoted(settings.ServiceName);
+            }
+
+            if (string.IsNullOrEmpty(pathArgs))
+            {
+                args.AppendSwitchQuoted("binPath=", " ", settings.ExecutablePath.FullPath);
+            }
+            else
+            {
+                args.AppendSwitchQuoted("binPath=", " ", "\\\"" + settings.ExecutablePath.FullPath + "\\\" " + pathArgs.Replace("\"", "\\\""));
+            }
+
+
+            if (!String.IsNullOrEmpty(settings.DisplayName))
+            {
+                args.AppendSwitchQuoted("DisplayName=", " ", settings.DisplayName);
+            }
+
+            if (!String.IsNullOrEmpty(settings.Dependencies))
+            {
+                args.AppendSwitchQuoted("depend=", " ", settings.Dependencies);
+            }
+
+            if (!String.IsNullOrEmpty(settings.StartMode))
+            {
+                args.AppendSwitchQuoted("start=", " ", settings.StartMode);
+            }
+
+            if (!String.IsNullOrEmpty(settings.Username))
+            {
+                args.AppendSwitchQuoted("obj=", " ", settings.Username);
+            }
+
+            if (!String.IsNullOrEmpty(settings.Password))
+            {
+                args.AppendSwitchQuotedSecret("password=", " ", settings.Password);
+            }
+
+            return args;
+        }
+
+        private void PowershellDescriptionCommand(string computer, InstallSettings settings)
             {
                 //Create Settings
                 PowershellSettings powerSettings = new PowershellSettings()
