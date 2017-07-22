@@ -1,9 +1,9 @@
 ﻿#region Using Statements
-    using System.ServiceProcess;
+using System.ServiceProcess;
 
-    using Cake.Core;
-    using Cake.Core.Annotations;
-    using Cake.Powershell;
+using Cake.Core;
+using Cake.Core.Annotations;
+using Cake.Powershell;
 #endregion
 
 
@@ -17,6 +17,7 @@ namespace Cake.Services
     [CakeNamespaceImport("System.ServiceProcess")]
     public static class ServiceAliases
     {
+        #region Methods (49)
         /// <summary>
         /// Gets the <see cref="ServiceManager"/> that is used to control windows services
         /// </summary>
@@ -182,7 +183,6 @@ namespace Cake.Services
         public static bool IsServicePausing(this ICakeContext context, string name, string computer)
         {
             return context.CreateManager().IsPausing(name, computer);
-
         }
 
         /// <summary>
@@ -664,5 +664,6 @@ namespace Cake.Services
         {
             context.CreateManager().Uninstall(name, computer);
         }
+        #endregion
     }
 }

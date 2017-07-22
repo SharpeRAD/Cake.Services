@@ -62,7 +62,7 @@ namespace Cake.Services.Tests
         }
 
         [Fact]
-        public void Should_Construct_Arg_String()
+        public void Should_Construct_Install_String()
         {
             ServiceManager manager = (ServiceManager) CakeHelper.CreateServiceManager();
 
@@ -78,8 +78,37 @@ namespace Cake.Services.Tests
             });
 
             var actual = argumentBuilder.Render();
+            System.Diagnostics.Debug.WriteLine(actual);
 
             var expected = @"""TestService"" binPath= ""C:/my/path/to/bin.exe"" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
+
+            Assert.Equal(expected, actual);
+        }
+        
+        [Fact]
+        public void Should_Construct_Intsall_String_WithArgs()
+        {
+            ServiceManager manager = (ServiceManager) CakeHelper.CreateServiceManager();
+
+            var argumentBuilder = manager.CreateInstallArguments("", new InstallSettings()
+            {
+                ServiceName = "TestService",
+                ExecutablePath = @"C:\my\path\to\bin.exe",
+                DisplayName = "Test Service Display Name",
+                Dependencies = "TestDependencies",
+                Username = "TestUsername",
+                Password = "TestPasswordPassword",
+                StartMode = "TestStartMode"
+            }
+            .WithArguments( args => 
+            {
+                args.AppendQuoted("CustomName", "Bob");
+            }));
+
+            var actual = argumentBuilder.Render();
+            System.Diagnostics.Debug.WriteLine(actual);
+
+            var expected = @"""TestService"" binPath= ""\""C:/my/path/to/bin.exe\"" -CustomName \""Bob\"""" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
 
             Assert.Equal(expected, actual);
         }

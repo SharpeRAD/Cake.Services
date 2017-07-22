@@ -1,3 +1,10 @@
+### New in 0.2.9 (Released 2017/07/22)
+* [Bug] Install command with args not escaped correctly
+* [Bug] Description missing service name
+* [Improvement] New CakeContrib Icon
+* [Improvement] Added OutputToAppConsole setting to install command
+* [Improvement] Dropped region indentation
+
 ### New in 0.2.8 (Released 2017/04/22)
 * [Bug] Install command should include a space in the switch statement
 

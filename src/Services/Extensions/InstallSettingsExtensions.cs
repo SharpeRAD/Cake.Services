@@ -1,7 +1,7 @@
 ﻿#region Using Statements
-    using System;
+using System;
 
-    using Cake.Core.IO;
+using Cake.Core.IO;
 #endregion
 
 
@@ -13,6 +13,7 @@ namespace Cake.Services
     /// </summary>
     public static class InstallSettingsExtensions
     {
+        #region Methods (9)
         /// <summary>
         /// Sets the arguments to use during installation
         /// </summary>
@@ -178,5 +179,6 @@ namespace Cake.Services
             settings.Password = password;
             return settings;
         }
+        #endregion
     }
 }
