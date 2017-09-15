@@ -22,7 +22,7 @@
 
       <dependencies>
          <dependency id="Cake.Core" version="0.11.0" />
-         <dependency id="Cake.Powershell" version="0.2.3" />
+         <dependency id="Cake.Powershell" version="0.3.5" />
          <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
       </dependencies>
    </metadata>

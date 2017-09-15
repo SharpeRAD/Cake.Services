@@ -36,9 +36,8 @@
       <HintPath>..\packages\Cake.Core.0.17.0\lib\net45\Cake.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Cake.Powershell, Version=0.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Powershell.0.3.1\lib\net45\Cake.Powershell.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Cake.Powershell">
+      <HintPath>..\packages\Cake.Powershell.0.3.5\lib\net45\Cake.Powershell.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

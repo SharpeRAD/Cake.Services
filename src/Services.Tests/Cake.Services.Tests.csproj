@@ -43,8 +43,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Cake.Powershell, Version=0.2.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Powershell.0.2.8\lib\net45\Cake.Powershell.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cake.Powershell.0.3.5\lib\net45\Cake.Powershell.dll</HintPath>
     </Reference>
     <Reference Include="NSubstitute, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
