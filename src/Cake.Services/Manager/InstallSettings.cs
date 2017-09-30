@@ -11,7 +11,7 @@ namespace Cake.Services
     /// </summary>
     public class InstallSettings
     {
-        #region Constructor (1)
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="InstallSettings" /> class.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Cake.Services
 
 
 
-        #region Properties (10)
+        #region Properties
         /// <summary>
         /// Specifies the service name returned by the getkeyname operation.
         /// </summary>

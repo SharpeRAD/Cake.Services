@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AssemblyTitle>Cake.Services</AssemblyTitle>
+        <AssemblyName>Cake.Services</AssemblyName>
+        <PackageId>Cake.Services</PackageId>
+        <OutputType>Library</OutputType>
+
+        <TargetFrameworks>net461;</TargetFrameworks>
+
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+        <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+        <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+        <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DocumentationFile>bin\Debug\net461\Cake.Services.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Cake.Core" Version="0.22.0" />
+        <PackageReference Include="Cake.Powershell" Version="0.4.0" />
+        
+        <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.4.0" />
+    </ItemGroup>
+</Project>

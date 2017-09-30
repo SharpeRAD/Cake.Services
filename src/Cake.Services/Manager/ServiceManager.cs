@@ -18,7 +18,7 @@ namespace Cake.Services
     /// </summary>
     public class ServiceManager : IServiceManager
     {
-        #region Fields (3)
+        #region Fields
         private readonly ICakeEnvironment _Environment;
         private readonly ICakeLog _Log;
 
@@ -29,7 +29,7 @@ namespace Cake.Services
 
 
 
-        #region Constructor (1)
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceManager" /> class.
         /// </summary>
@@ -61,7 +61,7 @@ namespace Cake.Services
 
 
 
-        #region Methods (10)
+        #region Methods
         /// <summary>
         /// Gets the <see cref="ServiceController"/> that is associated with an existing service on the specified computer.
         /// </summary>

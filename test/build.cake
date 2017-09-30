@@ -1,5 +1,5 @@
-#addin "Cake.Powershell&version=0.3.1"
-#addin "Cake.Services&version=0.2.6"
+#addin "Cake.Powershell"
+#addin "Cake.Services"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -45,6 +45,8 @@ Task("Windows-Service")
             StartService("MpsSvc");
         }
     });
+
+
 
 
 

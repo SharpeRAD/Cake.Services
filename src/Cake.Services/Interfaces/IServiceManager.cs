@@ -11,7 +11,7 @@ namespace Cake.Services
     /// </summary>
     public interface IServiceManager
     {
-        #region Methods (16)
+        #region Methods
         /// <summary>
         /// Gets the <see cref="ServiceController"/> that is associated with an existing service on the specified computer.
         /// </summary>

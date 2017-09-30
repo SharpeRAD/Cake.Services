@@ -13,7 +13,7 @@ namespace Cake.Services
     /// </summary>
     public static class InstallSettingsExtensions
     {
-        #region Methods (9)
+        #region Methods
         /// <summary>
         /// Sets the arguments to use during installation
         /// </summary>

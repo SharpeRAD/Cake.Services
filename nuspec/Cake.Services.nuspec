@@ -16,23 +16,21 @@
       <releaseNotes>Initial Release</releaseNotes>
       <tags>Cake Script Build WindowsService</tags>
 
-      <frameworkAssemblies>
-         <frameworkAssembly assemblyName="System.ServiceProcess" />
-      </frameworkAssemblies>
-
       <dependencies>
-         <dependency id="Cake.Core" version="0.11.0" />
-         <dependency id="Cake.Powershell" version="0.2.3" />
-         <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.0.0" />
+         <dependency id="Cake.Core" version="0.22.0" />
+         <dependency id="Cake.Powershell" version="0.4.0" />
+         <dependency id="System.ServiceProcess.ServiceController" version="4.4.0" />
       </dependencies>
    </metadata>
 
    <files>
-      <file src="System.ServiceProcess.dll" target="lib/net45" />
-      <file src="System.Management.Automation.dll" target="lib/net45" />
-      <file src="Cake.Powershell.dll" target="lib/net45" />
-      <file src="Cake.Services.dll" target="lib/net45" />
-      <file src="Cake.Services.xml" target="lib/net45" />
+      <file src="net461/System.ServiceProcess.dll" target="lib/net461" />
+      <file src="net461/System.Management.Automation.dll" target="lib/net461" />
+       
+      <file src="net461/Cake.Powershell.dll" target="lib/net461" />
+      <file src="net461/Cake.Services.dll" target="lib/net461" />
+      <file src="net461/Cake.Services.xml" target="lib/net461" />
+       
       <file src="LICENSE" />
    </files>
 </package>

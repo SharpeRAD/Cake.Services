@@ -1,18 +1,10 @@
 ﻿#region Using Statements
-    using System;
-    using System.IO;
-    using System.Collections.ObjectModel;
-    using System.ServiceProcess;
+using System.ServiceProcess;
 
-    using Xunit;
+using Xunit;
+using Shouldly;
 
-    using System.Management.Automation;
-    using System.Management.Automation.Runspaces;
-
-    using Cake.Core.Diagnostics;
-    using Cake.Core.IO;
-    using Cake.Powershell;
-
+using Cake.Powershell;
 #endregion
 
 
@@ -27,10 +19,10 @@ namespace Cake.Services.Tests
             IServiceManager manager = CakeHelper.CreateServiceManager();
 
             bool result1 = manager.IsInstalled("MpsSvc");
-            bool result2 = manager.IsInstalled("TestSer");
+            result1.ShouldBeTrue();
 
-            Assert.True(result1);
-            Assert.False(result2);
+            bool result2 = manager.IsInstalled("TestSer");
+            result2.ShouldBeFalse();
         }
 
         [Fact]
@@ -39,8 +31,7 @@ namespace Cake.Services.Tests
             IServiceManager manager = CakeHelper.CreateServiceManager();
 
             ServiceController controller = manager.GetService("MpsSvc");
-
-            Assert.True(controller != null, "Check Rights");
+            controller.ShouldNotBeNull("Check Rights");
         }
 
         [Fact]
@@ -58,7 +49,7 @@ namespace Cake.Services.Tests
                 result = manager.Start("MpsSvc");
             }
 
-            Assert.True(result, "Check Rights");
+            result.ShouldBeTrue("Check Rights");
         }
 
         [Fact]
@@ -81,8 +72,7 @@ namespace Cake.Services.Tests
             System.Diagnostics.Debug.WriteLine(actual);
 
             var expected = @"""TestService"" binPath= ""C:/my/path/to/bin.exe"" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
-
-            Assert.Equal(expected, actual);
+            expected.ShouldBe(actual);
         }
         
         [Fact]
@@ -109,8 +99,7 @@ namespace Cake.Services.Tests
             System.Diagnostics.Debug.WriteLine(actual);
 
             var expected = @"""TestService"" binPath= ""\""C:/my/path/to/bin.exe\"" -CustomName \""Bob\"""" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
-
-            Assert.Equal(expected, actual);
+            expected.ShouldBe(actual);
         }
     }
 }

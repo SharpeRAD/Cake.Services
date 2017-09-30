@@ -1,9 +1,9 @@
 ﻿#region Using Statements
-    using System;
-    using System.Diagnostics;
-    using System.Collections.Generic;
+using System;
+using System.Diagnostics;
+using System.Collections.Generic;
 
-    using Cake.Core.Diagnostics;
+using Cake.Core.Diagnostics;
 #endregion
 
 
@@ -15,6 +15,7 @@ namespace Cake.Services.Tests
     /// </summary>
     internal class DebugLog : ICakeLog
     {
+        #region Properties
         /// <summary>
         /// Gets the verbosity.
         /// </summary>
@@ -30,9 +31,13 @@ namespace Cake.Services.Tests
             get { return Verbosity.Diagnostic; }
             set { }
         }
+        #endregion
 
 
 
+
+
+        #region Methods
         /// <summary>
         /// Writes the text representation of the specified array of objects to the 
         /// log using the specified verbosity, log level and format information.
@@ -64,5 +69,6 @@ namespace Cake.Services.Tests
             }
             catch { }
         }
+        #endregion
     }
 }

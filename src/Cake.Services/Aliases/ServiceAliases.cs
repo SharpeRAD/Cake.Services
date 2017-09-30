@@ -17,7 +17,7 @@ namespace Cake.Services
     [CakeNamespaceImport("System.ServiceProcess")]
     public static class ServiceAliases
     {
-        #region Methods (49)
+        #region Methods
         /// <summary>
         /// Gets the <see cref="ServiceManager"/> that is used to control windows services
         /// </summary>
