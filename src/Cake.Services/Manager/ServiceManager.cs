@@ -1,6 +1,7 @@
 ﻿#region Using Statements
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using System.ServiceProcess;
 
 using Cake.Core;
@@ -75,8 +76,6 @@ namespace Cake.Services
                 throw new ArgumentNullException("name");
             }
 
-
-
             if (String.IsNullOrEmpty(computer))
             {
                 return new ServiceController(name);
@@ -86,6 +85,25 @@ namespace Cake.Services
                 return new ServiceController(name, computer);
             }
         }
+
+        /// <summary>
+        /// Gets a list of <see cref="ServiceController"/> on the specified computer.
+        /// </summary>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>A list of <see cref="ServiceController"/> on the specified computer.</returns>
+        public List<ServiceController> GetServices(string computer = "")
+        {
+            if (String.IsNullOrEmpty(computer))
+            {
+                return ServiceController.GetServices().ToList();
+            }
+            else
+            {
+                return ServiceController.GetServices(computer).ToList();
+            }
+        }
+
+
 
         /// <summary>
         /// Checks if the named service exists

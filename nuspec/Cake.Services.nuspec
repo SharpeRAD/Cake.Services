@@ -16,6 +16,10 @@
       <releaseNotes>Initial Release</releaseNotes>
       <tags>Cake Script Build WindowsService</tags>
 
+      <frameworkAssemblies>
+         <frameworkAssembly assemblyName="System.ServiceProcess" />
+      </frameworkAssemblies>
+
       <dependencies>
          <dependency id="Cake.Core" version="0.22.0" />
          <dependency id="Cake.Powershell" version="0.4.0" />

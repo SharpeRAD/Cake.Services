@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System.ServiceProcess;
+using System.Collections.Generic;
 #endregion
 
 
@@ -19,6 +20,15 @@ namespace Cake.Services
         /// <param name="computer">The computer on which the service resides.</param>
         /// <returns>The <see cref="ServiceController"/> that is associated with an existing service on the specified computer.</returns>
         ServiceController GetService(string name, string computer = "");
+
+        /// <summary>
+        /// Gets a list of <see cref="ServiceController"/> on the specified computer.
+        /// </summary>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>A list of <see cref="ServiceController"/> on the specified computer.</returns>
+        List<ServiceController> GetServices(string computer = "");
+
+
 
         /// <summary>
         /// Checks if the named service exists

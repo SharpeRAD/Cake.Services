@@ -1,3 +1,7 @@
+### New in 0.3.1 (Released 2017/10/20)
+* [Improvement] Add GetServices alias
+* [Bug] Missing framework reference from nuspec file
+
 ### New in 0.3.0 (Released 2017/09/30)
 * [Improvement] Updated Cake reference to v0.22.0
 * [Improvement] Moved to net461 for Cake compatibility

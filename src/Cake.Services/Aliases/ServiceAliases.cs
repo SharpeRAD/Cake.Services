@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System.ServiceProcess;
+using System.Collections.Generic;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -56,6 +57,35 @@ namespace Cake.Services
         {
             return context.CreateManager().GetService(name, computer);
         }
+
+
+
+        /// <summary>
+        /// Gets a list of <see cref="ServiceController"/> on the specified computer.
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <returns>A list of <see cref="ServiceController"/> on the specified computer.</returns>
+        [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
+        public static List<ServiceController> GetServices(this ICakeContext context)
+        {
+            return context.CreateManager().GetServices();
+        }
+
+        /// <summary>
+        /// Gets a list of <see cref="ServiceController"/> on the specified computer.
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="computer">The computer on which the service resides.</param>
+        /// <returns>A list of <see cref="ServiceController"/> on the specified computer.</returns>
+        [CakeMethodAlias]
+        [CakeNamespaceImport("System.ServiceProcess")]
+        public static List<ServiceController> GetServices(this ICakeContext context, string computer)
+        {
+            return context.CreateManager().GetServices(computer);
+        }
+
+
 
         /// <summary>
         /// Gets the <see cref="ServiceControllerStatus"/> status of a service on the specified computer.
