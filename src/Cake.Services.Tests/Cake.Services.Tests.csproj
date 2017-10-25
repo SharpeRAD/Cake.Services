@@ -5,7 +5,7 @@
         <PackageId>Cake.Services.Tests</PackageId>
         <OutputType>Library</OutputType>
 
-        <TargetFrameworks>net461</TargetFrameworks>
+        <TargetFrameworks>net46</TargetFrameworks>
 
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
@@ -20,7 +20,7 @@
 
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.22.0" />
-        <PackageReference Include="Cake.Powershell" Version="0.4.0" />
+        <PackageReference Include="Cake.Powershell" Version="0.4.2" />
         <PackageReference Include="Cake.Testing" Version="0.22.0" />
 
         <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
@@ -30,5 +30,9 @@
         <PackageReference Include="Shouldly" Version="2.8.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
         <PackageReference Include="XunitXml.TestLogger" Version="1.0.3-pre-rtm" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Reference Include="System.ServiceProcess" />
     </ItemGroup>
 </Project>

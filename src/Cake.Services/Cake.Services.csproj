@@ -5,7 +5,7 @@
         <PackageId>Cake.Services</PackageId>
         <OutputType>Library</OutputType>
 
-        <TargetFrameworks>net461;</TargetFrameworks>
+        <TargetFrameworks>net46;</TargetFrameworks>
 
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
@@ -15,13 +15,17 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <DocumentationFile>bin\Debug\net461\Cake.Services.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\net46\Cake.Services.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.22.0" />
-        <PackageReference Include="Cake.Powershell" Version="0.4.0" />
+        <PackageReference Include="Cake.Powershell" Version="0.4.2" />
         
-        <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.4.0" />
+        <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.ServiceProcess" />
     </ItemGroup>
 </Project>

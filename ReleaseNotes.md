@@ -1,3 +1,7 @@
+### New in 0.3.2 (Released 2017/10/20)
+* [Improvement] Drop down to net46
+* [Improvement] Remove reference to Microsoft.PowerShell.5.ReferenceAssemblie
+
 ### New in 0.3.1 (Released 2017/10/20)
 * [Improvement] Add GetServices alias
 * [Bug] Missing framework reference from nuspec file
