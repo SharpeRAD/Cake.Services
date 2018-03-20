@@ -21,8 +21,8 @@
         </frameworkAssemblies>
 
         <dependencies>
-            <dependency id="Cake.Core" version="0.22.0" />
-            <dependency id="Cake.Powershell" version="0.4.2" />
+            <dependency id="Cake.Core" version="0.26.1" />
+            <dependency id="Cake.Powershell" version="0.4.4" />
             <dependency id="Microsoft.PowerShell.5.ReferenceAssemblies" version="1.1.0"/>
         </dependencies>
     </metadata>
