@@ -1,3 +1,6 @@
+### New in 0.3.4 (Released 2018/04/05)
+* [Bug] Didnt update package refernces
+
 ### New in 0.3.3 (Released 2018/04/05)
 * [Improvement] Update to Cake.Core v0.26
 
