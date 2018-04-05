@@ -31,19 +31,10 @@ Setup(context =>
 ///////////////////////////////////////////////////////////////////////////////
 
 Task("Windows-Service")
-    .Description("Stop / Start windows service")
+    .Description("List Services")
     .Does(() =>
     {
-		ServiceController controller = GetService("MpsSvc");
-
-        if (controller != null)
-        {
-            StopService("MpsSvc");
-        }
-        else
-        {
-            StartService("MpsSvc");
-        }
+		GetServices("MpsSvc");
     });
 
 

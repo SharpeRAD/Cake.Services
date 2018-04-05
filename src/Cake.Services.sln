@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{7B702943-4526-4B9D-B8DD-F50821850150}"
 EndProject
@@ -29,9 +29,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897
 		..\nuspec\Cake.Services.nuspec = ..\nuspec\Cake.Services.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Services", "Cake.Services\Cake.Services.csproj", "{E710830A-E8ED-467F-BDCC-7DA0C86448C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Services", "Cake.Services\Cake.Services.csproj", "{E710830A-E8ED-467F-BDCC-7DA0C86448C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Services.Tests", "Cake.Services.Tests\Cake.Services.Tests.csproj", "{2900C134-C801-4A6E-BC3D-730820A398C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.Services.Tests", "Cake.Services.Tests\Cake.Services.Tests.csproj", "{2900C134-C801-4A6E-BC3D-730820A398C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC8C70E6-54E2-43C9-AD9D-43B69718D071}"
+	ProjectSection(SolutionItems) = preProject
+		..\cake.config = ..\cake.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

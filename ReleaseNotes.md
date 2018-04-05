@@ -1,3 +1,6 @@
+### New in 0.3.3 (Released 2018/04/05)
+* [Improvement] Update to Cake.Core v0.26
+
 ### New in 0.3.2 (Released 2017/10/20)
 * [Improvement] Drop down to net46
 * [Improvement] Remove reference to Microsoft.PowerShell.5.ReferenceAssemblie
