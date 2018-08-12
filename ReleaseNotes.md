@@ -1,3 +1,7 @@
+### New in 0.3.5 (Released 2018/08/12)
+* [Improvement] Update to Cake.Core v0.29
+* [Improvement] Update build scripts
+
 ### New in 0.3.4 (Released 2018/04/05)
 * [Bug] Didnt update package refernces
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <AssemblyTitle>Cake.Services.Tests</AssemblyTitle>
         <AssemblyName>Cake.Services.Tests</AssemblyName>
@@ -19,17 +19,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.26.0" />
-        <PackageReference Include="Cake.Powershell" Version="0.4.5" />
-        <PackageReference Include="Cake.Testing" Version="0.26.0" />
+        <PackageReference Include="Cake.Core" Version="0.29.0" />
+        <PackageReference Include="Cake.Testing" Version="0.29.0" />
+        <PackageReference Include="Cake.Powershell" Version="0.4.6" />
 
         <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
 
-        <PackageReference Include="xunit" Version="2.2.0" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
-        <PackageReference Include="Shouldly" Version="2.8.3" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-        <PackageReference Include="XunitXml.TestLogger" Version="1.0.3-pre-rtm" />
+        <PackageReference Include="xunit" Version="2.3.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+        <PackageReference Include="Shouldly" Version="3.0.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+        <PackageReference Include="XunitXml.TestLogger" Version="2.0.0" />
     </ItemGroup>
     
     <ItemGroup>
