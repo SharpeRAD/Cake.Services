@@ -4,6 +4,7 @@ using System.ServiceProcess;
 using Xunit;
 using Shouldly;
 
+using Cake.Core;
 using Cake.Powershell;
 #endregion
 
@@ -74,7 +75,7 @@ namespace Cake.Services.Tests
             var expected = @"""TestService"" binPath= ""C:/my/path/to/bin.exe"" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
             expected.ShouldBe(actual);
         }
-        
+
         [Fact]
         public void Should_Construct_Intsall_String_WithArgs()
         {
@@ -98,7 +99,7 @@ namespace Cake.Services.Tests
             var actual = argumentBuilder.Render();
             System.Diagnostics.Debug.WriteLine(actual);
 
-            var expected = @"""TestService"" binPath= ""\""C:/my/path/to/bin.exe\"" -CustomName \""Bob\"""" DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
+            var expected = @"""TestService"" binPath= '\""C:/my/path/to/bin.exe\"" -CustomName \""Bob\""' DisplayName= ""Test Service Display Name"" depend= ""TestDependencies"" start= ""TestStartMode"" obj= ""TestUsername"" password= ""TestPasswordPassword""";
             expected.ShouldBe(actual);
         }
     }
