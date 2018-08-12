@@ -946,6 +946,7 @@ namespace Cake.Services
             this.SetFilePath(computer, settings);
 
 
+
             if (!String.IsNullOrEmpty(settings.ServiceName))
             {
                 args.AppendQuoted(settings.ServiceName);
@@ -957,9 +958,8 @@ namespace Cake.Services
             }
             else
             {
-                args.AppendSwitch("binPath=", " ", @"""\""" + settings.ExecutablePath.FullPath + @"\"" " + pathArgs.Replace("\"", "\\\"") + "\"");
+                args.AppendSwitch("binPath=", " ", "'" + @"\""" + settings.ExecutablePath.FullPath + @"\"" " + pathArgs.Replace("\"", "\\\"") + "'");
             }
-
 
             if (!String.IsNullOrEmpty(settings.DisplayName))
             {
