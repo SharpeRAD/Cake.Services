@@ -40,6 +40,7 @@ Cake-Build addin that extends Cake with windows service commands
 ## Referencing
 
 [![NuGet Version](http://img.shields.io/nuget/v/Cake.Services.svg?style=flat)](https://www.nuget.org/packages/Cake.Services/)
+[![NuGet Downloads](http://img.shields.io/nuget/dt/Cake.Services.svg?style=flat)](https://www.nuget.org/packages/Cake.Services/)
 
 Cake.Services is available as a nuget package from the package manager console:
 
