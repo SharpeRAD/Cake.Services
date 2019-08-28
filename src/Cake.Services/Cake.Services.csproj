@@ -19,8 +19,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.29.0" PrivateAssets="All" />
-        <PackageReference Include="Cake.Powershell" Version="0.4.6" />
+        <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+        <PackageReference Include="Cake.Powershell" Version="0.4.8" />
         
         <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
     </ItemGroup>
