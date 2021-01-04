@@ -22,8 +22,6 @@ namespace Cake.Services
         #region Fields
         private readonly ICakeEnvironment _Environment;
         private readonly ICakeLog _Log;
-
-        private readonly IPowershellRunner _PowershellRunner;
         #endregion
 
 
@@ -54,7 +52,6 @@ namespace Cake.Services
 
             _Environment = environment;
             _Log = log;
-            _PowershellRunner = powershellRunner;
         }
         #endregion
 
@@ -868,7 +865,8 @@ namespace Cake.Services
                     powerSettings.ComputerName = computer;
                 }
 
-                _PowershellRunner.Start("& \"sc.exe\" delete", powerSettings);
+                var powershellRunner = new PowershellRunner(_Environment, _Log);
+                powershellRunner.Start("& \"sc.exe\" delete", powerSettings);
 
                 return true;
             }
@@ -923,7 +921,8 @@ namespace Cake.Services
 
 
             //Run Powershell
-            _PowershellRunner.Start(script, powerSettings);
+            var powershellRunner = new PowershellRunner(_Environment, _Log);
+            powershellRunner.Start(script, powerSettings);
         }
 
         /// <summary>
@@ -1017,7 +1016,8 @@ namespace Cake.Services
 
 
             //Run Command
-            _PowershellRunner.Start("& \"sc.exe\" description", powerSettings);
+            var powershellRunner = new PowershellRunner(_Environment, _Log);
+            powershellRunner.Start("& \"sc.exe\" description", powerSettings);
         }
 
         private void SetWorkingDirectory(PowershellSettings settings)
