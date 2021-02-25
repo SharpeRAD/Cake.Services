@@ -5,8 +5,9 @@
         <PackageId>Cake.Services</PackageId>
         <OutputType>Library</OutputType>
 
-        <TargetFrameworks>net46;</TargetFrameworks>
+        <TargetFrameworks>net46;net461;netcoreapp3.1;net5.0</TargetFrameworks>
 
+	    <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
         <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
@@ -14,18 +15,14 @@
         <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     </PropertyGroup>
 
-    <PropertyGroup>
-        <DocumentationFile>bin\Debug\net46\Cake.Services.xml</DocumentationFile>
-    </PropertyGroup>
-
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
-        <PackageReference Include="Cake.Powershell" Version="0.4.8" />
-        
-        <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
+        <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="Cake.Powershell" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" Condition="'$(TargetFramework)' != 'net46'" />
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="System.ServiceProcess" />
+      <Reference Include="System.ServiceProcess" Condition="'$(TargetFramework)' == 'net46'" />
     </ItemGroup>
+
 </Project>
