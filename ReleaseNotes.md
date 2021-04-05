@@ -1,3 +1,6 @@
+### New in 1.0.1 (Released 2021/04/05)
+* [Improvement] Add cake tag
+
 ### New in 1.0.0 (Released 2021/04/05)
 * [Improvement] Update to Cake.Core v1.0.0
 

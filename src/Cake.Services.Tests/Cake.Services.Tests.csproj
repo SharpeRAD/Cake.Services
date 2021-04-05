@@ -28,14 +28,14 @@
         <PackageReference Include="System.ServiceProcess.ServiceController" Version="5.0.0" Condition="'$(TargetFramework)' != 'net46'" />
         <PackageReference Include="xunit" Version="2.4.1" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="XunitXml.TestLogger" Version="3.0.66" />
     </ItemGroup>
 
-	<ItemGroup>
-		<Reference Include="System.ServiceProcess" Condition="'$(TargetFramework)' == 'net46'" />
-	</ItemGroup>
-    
+    <ItemGroup>
+        <Reference Include="System.ServiceProcess" Condition="'$(TargetFramework)' == 'net46'" />
+    </ItemGroup>
+
 </Project>

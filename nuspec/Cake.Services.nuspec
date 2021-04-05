@@ -14,7 +14,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
         <releaseNotes>Initial Release</releaseNotes>
-        <tags>Cake Script Build WindowsService</tags>
+        <tags>Cake cake-addin Script Build WindowsService</tags>
 
 	    <dependencies>
 		    <group>
