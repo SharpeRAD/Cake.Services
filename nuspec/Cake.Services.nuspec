@@ -49,10 +49,12 @@
         <file src="netcoreapp3.1/Cake.Services.dll" target="lib/netcoreapp3.1" />
         <file src="netcoreapp3.1/Cake.Services.xml" target="lib/netcoreapp3.1" />
         <file src="netcoreapp3.1/Cake.Services.pdb" target="lib/netcoreapp3.1" />
+        <file src="netcoreapp3.1/Cake.Services.deps.json" target="lib/netcoreapp3.1" />
 
         <file src="net5.0/Cake.Services.dll" target="lib/net5.0" />
         <file src="net5.0/Cake.Services.xml" target="lib/net5.0" />
         <file src="net5.0/Cake.Services.pdb" target="lib/net5.0" />
+        <file src="net5.0/Cake.Services.deps.json" target="lib/net5.0" />
 		
         <file src="LICENSE" />
     </files>
