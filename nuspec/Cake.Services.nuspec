@@ -16,23 +16,44 @@
         <releaseNotes>Initial Release</releaseNotes>
         <tags>Cake Script Build WindowsService</tags>
 
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System.ServiceProcess" />
-        </frameworkAssemblies>
-
-        <dependencies>
-            <dependency id="Cake.Powershell" version="0.4.8" />
-        </dependencies>
+	    <dependencies>
+		    <group>
+			    <dependency id="Cake.Powershell" version="1.0.0" />
+		    </group>
+		    <group targetFramework=".NETCoreApp3.1">
+			    <dependency id="System.ServiceProcess.ServiceController" version="6.0.0-preview.1.21102.12" />
+		    </group>
+		    <group targetFramework=".NETCoreApp5.0">
+			    <dependency id="System.ServiceProcess.ServiceController" version="6.0.0-preview.1.21102.12" />
+		    </group>
+		    <group targetFramework=".NETFramework4.6.1">
+			    <dependency id="System.ServiceProcess.ServiceController" version="6.0.0-preview.1.21102.12" />
+		    </group>
+	    </dependencies>
+	    <frameworkReferences>
+		    <group targetFramework=".NETFramework4.6">
+			    <frameworkReference name="System.ServiceProcess" />
+		    </group>
+	    </frameworkReferences>
     </metadata>
 
     <files>
         <file src="net46/Cake.Services.dll" target="lib/net46" />
         <file src="net46/Cake.Services.xml" target="lib/net46" />
         <file src="net46/Cake.Services.pdb" target="lib/net46" />
-		
-        <file src="net46/System.Management.Automation.dll" target="lib/net46" />
-        <file src="net46/Cake.Powershell.dll" target="lib/net46" />
 
+        <file src="net461/Cake.Services.dll" target="lib/net461" />
+        <file src="net461/Cake.Services.xml" target="lib/net461" />
+        <file src="net461/Cake.Services.pdb" target="lib/net461" />
+
+        <file src="netcoreapp3.1/Cake.Services.dll" target="lib/netcoreapp3.1" />
+        <file src="netcoreapp3.1/Cake.Services.xml" target="lib/netcoreapp3.1" />
+        <file src="netcoreapp3.1/Cake.Services.pdb" target="lib/netcoreapp3.1" />
+
+        <file src="net5.0/Cake.Services.dll" target="lib/net5.0" />
+        <file src="net5.0/Cake.Services.xml" target="lib/net5.0" />
+        <file src="net5.0/Cake.Services.pdb" target="lib/net5.0" />
+		
         <file src="LICENSE" />
     </files>
 </package>
